@@ -1,19 +1,30 @@
-Shader "Custom/ColorBlindnessSim"
+Shader "Hidden/ColorBlindFilter_URP"
 {
     Properties
     {
-        _MainTex ("Passthrough Texture", 2D) = "white" {}
-        _Mode ("Mode", Int) = 0
+        _Intensity ("Grayscale Intensity", Range(0,1)) = 1
     }
+
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" "Queue"="Overlay" }
+
+        ZWrite Off
+        ZTest Always
+        Blend SrcAlpha OneMinusSrcAlpha
+
         Pass
         {
             HLSLPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            #pragma vertex Vert
+            #pragma fragment Frag
+
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
+
+            TEXTURE2D(_CameraOpaqueTexture);
+            SAMPLER(sampler_CameraOpaqueTexture);
+
+            float _Intensity;
 
             struct Attributes
             {
@@ -27,10 +38,7 @@ Shader "Custom/ColorBlindnessSim"
                 float2 uv : TEXCOORD0;
             };
 
-            sampler2D _MainTex;
-            int _Mode;
-
-            Varyings vert (Attributes v)
+            Varyings Vert (Attributes v)
             {
                 Varyings o;
                 o.positionHCS = TransformObjectToHClip(v.positionOS.xyz);
@@ -38,49 +46,17 @@ Shader "Custom/ColorBlindnessSim"
                 return o;
             }
 
-            float3 ApplyCVD(float3 c, int mode)
+            half4 Frag (Varyings i) : SV_Target
             {
-                if (mode == 1) // Deuteranopia
-                {
-                    float3x3 m = float3x3(
-                        0.625, 0.375, 0.0,
-                        0.7,   0.3,   0.0,
-                        0.0,   0.3,   0.7
-                    );
-                    c = mul(m, c);
-                }
-                else if (mode == 2) // Protanopia
-                {
-                    float3x3 m = float3x3(
-                        0.567, 0.433, 0.0,
-                        0.558, 0.442, 0.0,
-                        0.0,   0.242, 0.758
-                    );
-                    c = mul(m, c);
-                }
-                else if (mode == 3) // Tritanopia
-                {
-                    float3x3 m = float3x3(
-                        0.95,  0.05,  0.0,
-                        0.0,   0.433, 0.567,
-                        0.0,   0.475, 0.525
-                    );
-                    c = mul(m, c);
-                }
-                else if (mode == 4) //Black & white (GreyScale)
-                {
-                    float luminace = dot(c, float3(0.299,0.587,0.114));
-                    c = float3(luminace,luminace,luminace);
-                }
-                return saturate(c);
+                float3 col = SAMPLE_TEXTURE2D(_CameraOpaqueTexture, sampler_CameraOpaqueTexture, i.uv).rgb;
+
+                float gray = dot(col, float3(0.299, 0.587, 0.114));
+
+                col = lerp(col, gray.xxx, _Intensity);
+
+                return float4(col,1);
             }
 
-            half4 frag (Varyings i) : SV_Target
-            {
-                float3 col = tex2D(_MainTex, i.uv).rgb;
-                col = ApplyCVD(col, _Mode);
-                return half4(col, 1.0);
-            }
             ENDHLSL
         }
     }

@@ -7,13 +7,13 @@
             "id": "6ac5e525-a253-46dd-9cdc-67778d9bb59d",
             "actions": [
                 {
-                    "name": "cvdAction",
+                    "name": "ColorChange",
                     "type": "Button",
                     "id": "cb90b397-37e5-40e5-9b58-2f21bde00ad0",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -24,7 +24,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "cvdAction",
+                    "action": "ColorChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

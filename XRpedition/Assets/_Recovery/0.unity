@@ -1891,7 +1891,6 @@ GameObject:
   - component: {fileID: 2101824145}
   - component: {fileID: 2101824144}
   - component: {fileID: 2101824143}
-  - component: {fileID: 2101824146}
   m_Layer: 0
   m_Name: '[BuildingBlock] Passthrough'
   m_TagString: Untagged
@@ -1921,21 +1920,21 @@ MonoBehaviour:
   passthroughLayerResumed:
     m_PersistentCalls:
       m_Calls: []
-  colorMapEditorType_: 5
+  colorMapEditorType_: 3
   colorMapEditorGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
     key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 1, g: 1, b: 1, a: 0}
-    key3: {r: 1, g: 1, b: 1, a: 0}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 65535
-    ctime2: 65535
-    ctime3: 65535
+    ctime2: 0
+    ctime3: 0
     ctime4: 0
     ctime5: 0
     ctime6: 0
@@ -1949,22 +1948,22 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_ColorSpace: 0
+    m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   colorMapEditorContrast: 0
   colorMapEditorBrightness: 0
   colorMapEditorPosterize: 0
   colorMapEditorSaturation: 0
-  _colorLutSourceTexture: {fileID: 2800000, guid: 1d3eab88d5f2c2f409d5c6a5dd1ae7da, type: 3}
-  _colorLutTargetTexture: {fileID: 2800000, guid: 1d3eab88d5f2c2f409d5c6a5dd1ae7da, type: 3}
-  _lutWeight: 0.5
+  _colorLutSourceTexture: {fileID: 2800000, guid: 4efeaae7afe3220448214f7da4645fc5, type: 3}
+  _colorLutTargetTexture: {fileID: 0}
+  _lutWeight: 1
   _flipLutY: 1
   serializedSurfaceGeometry: []
   textureOpacity_: 1
   edgeRenderingEnabled_: 0
-  edgeColor_: {r: 1, g: 1, b: 1, a: 0}
-  colorMapType: 6
+  edgeColor_: {r: 1, g: 1, b: 1, a: 1}
+  colorMapType: 2
 --- !u!114 &2101824144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,22 +1997,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2101824146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101824142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94af7cb9e3dc567479b054623e976298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CamFilterChange
-  NoRed: {fileID: 2800000, guid: a136b3aefed060345b5fab86e85c9e2e, type: 3}
-  NoGreen: {fileID: 2800000, guid: 1d3eab88d5f2c2f409d5c6a5dd1ae7da, type: 3}
-  NoBlue: {fileID: 2800000, guid: defb3dc4810a56e44bc2a416cbfd7b8a, type: 3}
-  LutWeight: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
