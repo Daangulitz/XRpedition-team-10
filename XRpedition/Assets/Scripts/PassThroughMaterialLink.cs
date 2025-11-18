@@ -10,7 +10,7 @@ public class PassThroughMaterialLink : MonoBehaviour
         if (passthroughLayer != null && cvdMaterial != null)
         {
             // Assign your shader material to the passthrough layer
-            passthroughLayer.customMaterial = cvdMaterial;
+            //passthroughLayer.customMaterial = cvdMaterial;
         }
     }
 }
