@@ -13,38 +13,32 @@ public class CamFilterChange : MonoBehaviour
     [SerializeField] private Texture2D NoBlue;
     
     [SerializeField] private float LutWeight;
-
-    private bool IsRunning = false;
-
+    
     private void Start()
     {
         passthroughLayer = FindObjectOfType<OVRPassthroughLayer>();
     }
 
-    private void Update()
+    public void NoRedLut()
     {
-        if (!IsRunning)
-        {
-            StartCoroutine(SwapColorLut());
-        }
-    }
-
-    IEnumerator SwapColorLut()
-    {
-        IsRunning = true;
-
         var Nored = new OVRPassthroughColorLut(NoRed, flipY: false);
         passthroughLayer.SetColorLut(Nored, LutWeight);
-        yield return new WaitForSeconds(10f);
+    }
 
+    public void NoGreenLut()
+    {
         var Nogreen = new OVRPassthroughColorLut(NoGreen, flipY: false);
         passthroughLayer.SetColorLut(Nogreen, LutWeight);
-        yield return new WaitForSeconds(10f);
+    }
 
+    public void NoBlueLut()
+    {
         var Noblue = new OVRPassthroughColorLut(NoBlue, flipY: false);
         passthroughLayer.SetColorLut(Noblue, LutWeight);
-        yield return new WaitForSeconds(10f);
+    }
 
+    public void BlackWhiteLut()
+    {
         passthroughLayer.DisableColorMap();
         
         passthroughLayer.SetBrightnessContrastSaturation(
@@ -52,9 +46,5 @@ public class CamFilterChange : MonoBehaviour
             contrast: 0f,
             saturation: -1f 
         );
-        yield return new WaitForSeconds(10f);
-        IsRunning = false;
-        yield return new WaitForSeconds(0.01f);
-        
     }
 }
