@@ -892,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pruim
       objectReference: {fileID: 0}
+    - target: {fileID: 4784063670292755914, guid: 85447fd9fb5733540aea16402cb73d49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5273636150078533488, guid: 85447fd9fb5733540aea16402cb73d49, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.911
@@ -1239,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6425261602646002447, guid: 76247e9bc86ea2b44a98ebbdca4b7088, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
