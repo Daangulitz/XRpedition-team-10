@@ -48,13 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3398820188790146132, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 87720028975a8e1429698d91512ddb31, type: 2}
     - target: {fileID: -880690047235209193, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f1101303f5a4026499db6fc705a0ce75, type: 2}
     - target: {fileID: 919132149155446097, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_Name
-      value: Klembord
+      value: Achromatopsie
       objectReference: {fileID: 0}
     - target: {fileID: 2345514790068135518, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
