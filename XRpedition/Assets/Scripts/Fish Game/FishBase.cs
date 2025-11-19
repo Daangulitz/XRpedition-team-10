@@ -14,7 +14,7 @@ public abstract class FishBase : MonoBehaviour
         }
     }
 
-    protected void Caught()
+    public void Caught()
     {
         //code for being caught
         
