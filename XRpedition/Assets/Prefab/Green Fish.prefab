@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0aa728242e6ee94ebce403f11e289e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishMovement
+  CurrentColor: Green
   speed: 0.5
   rotationSpeed: 160
   timerUntilNewDirection: 10
