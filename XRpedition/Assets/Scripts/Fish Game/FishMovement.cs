@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class FishMovement : FishBase
 {
     [Header("Movement")]
-    public float speed = 2f;
+    [SerializeField] float speed = 2f;
     [SerializeField] private float rotationSpeed = 90f;
 
     [Header("Random Direction Timer")]
