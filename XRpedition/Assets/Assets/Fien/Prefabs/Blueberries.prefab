@@ -48,10 +48,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5377860142577909580, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -3335556693246621393, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 0848f9ddad0882841b626db8ef868daa, type: 2}
+    - target: {fileID: -2947292208840936570, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: -849804693105487827, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -60,10 +68,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blueberries
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2687844824284650151, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 452e9d1b850061d428de71879043f22f, type: 2}
+    - target: {fileID: 8788952128262835992, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

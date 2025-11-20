@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smoothieglas
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 469c3e284aa0ca4409e1015007c5f20e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
