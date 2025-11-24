@@ -93,13 +93,13 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""id"": ""6ac5e525-a253-46dd-9cdc-67778d9bb59d"",
             ""actions"": [
                 {
-                    ""name"": ""cvdAction"",
+                    ""name"": ""ColorChange"",
                     ""type"": ""Button"",
                     ""id"": ""cb90b397-37e5-40e5-9b58-2f21bde00ad0"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -110,7 +110,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""cvdAction"",
+                    ""action"": ""ColorChange"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -121,7 +121,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
 }");
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_cvdAction = m_Player.FindAction("cvdAction", throwIfNotFound: true);
+        m_Player_ColorChange = m_Player.FindAction("ColorChange", throwIfNotFound: true);
     }
 
     ~@PlayerInput()
@@ -202,7 +202,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     // Player
     private readonly InputActionMap m_Player;
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_cvdAction;
+    private readonly InputAction m_Player_ColorChange;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -215,9 +215,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// </summary>
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Player/cvdAction".
+        /// Provides access to the underlying input action "Player/ColorChange".
         /// </summary>
-        public InputAction @cvdAction => m_Wrapper.m_Player_cvdAction;
+        public InputAction @ColorChange => m_Wrapper.m_Player_ColorChange;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -244,9 +244,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-            @cvdAction.started += instance.OnCvdAction;
-            @cvdAction.performed += instance.OnCvdAction;
-            @cvdAction.canceled += instance.OnCvdAction;
+            @ColorChange.started += instance.OnColorChange;
+            @ColorChange.performed += instance.OnColorChange;
+            @ColorChange.canceled += instance.OnColorChange;
         }
 
         /// <summary>
@@ -258,9 +258,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         /// <seealso cref="PlayerActions" />
         private void UnregisterCallbacks(IPlayerActions instance)
         {
-            @cvdAction.started -= instance.OnCvdAction;
-            @cvdAction.performed -= instance.OnCvdAction;
-            @cvdAction.canceled -= instance.OnCvdAction;
+            @ColorChange.started -= instance.OnColorChange;
+            @ColorChange.performed -= instance.OnColorChange;
+            @ColorChange.canceled -= instance.OnColorChange;
         }
 
         /// <summary>
@@ -302,11 +302,11 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         /// <summary>
-        /// Method invoked when associated input action "cvdAction" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ColorChange" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCvdAction(InputAction.CallbackContext context);
+        void OnColorChange(InputAction.CallbackContext context);
     }
 }
