@@ -1,6 +1,6 @@
 using UnityEngine;
-using Oculus.Interaction;
 using Oculus.Interaction.HandGrab;
+using Oculus.Interaction.Input;
 
 public class ChestFruitSpawner : MonoBehaviour
 {
@@ -10,7 +10,9 @@ public class ChestFruitSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        currentHand = other.GetComponentInParent<HandGrabInteractor>();
+        var hand = other.GetComponentInParent<HandGrabInteractor>();
+        if (hand != null)
+            currentHand = hand;
     }
 
     private void OnTriggerExit(Collider other)
@@ -25,9 +27,11 @@ public class ChestFruitSpawner : MonoBehaviour
         if (currentHand == null)
             return;
 
-        // A grab gesture has begun but nothing is grabbed yet
-        if (currentHand.State == InteractorState.Select &&
-            !currentHand.HasSelectedInteractable)
+        // Detect pinch
+        bool isPinching = currentHand.Hand.GetFingerPinchStrength(HandFinger.Index) > 0.7f;
+
+        // Only spawn if pinching but nothing is grabbed
+        if (isPinching && !currentHand.HasSelectedInteractable)
         {
             SpawnFruitInHand(currentHand);
         }
@@ -38,13 +42,9 @@ public class ChestFruitSpawner : MonoBehaviour
         // Instantiate fruit
         GameObject fruit = Instantiate(fruitPrefab);
 
-        // Place fruit at the pinch point
+        // Place at pinch point
         Transform pinch = hand.PinchPoint;
-
         fruit.transform.position = pinch.position;
         fruit.transform.rotation = pinch.rotation;
-
-        // The HandGrabInteractor will automatically grab it
-        // because the fruit has a HandGrabInteractable.
     }
 }
