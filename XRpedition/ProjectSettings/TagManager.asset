@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - PPCam
+  - Apple
+  - Banana
+  - Blueberries
+  - Druif
+  - Mandarijn
+  - Pruim
   layers:
   - Default
   - TransparentFX

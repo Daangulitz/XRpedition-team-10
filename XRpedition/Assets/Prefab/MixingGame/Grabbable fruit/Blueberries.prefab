@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      propertyPath: m_TagString
+      value: Blueberries
+      objectReference: {fileID: 0}
     - target: {fileID: 2687844824284650151, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
