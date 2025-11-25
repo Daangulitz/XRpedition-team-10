@@ -19,6 +19,8 @@ public class FishMovement : FishBase
 
     void Start()
     {
+        base.Start();
+        
         rb = GetComponent<Rigidbody>();
 
         // Eerste willekeurige richting

@@ -8,7 +8,7 @@ public abstract class FishBase : MonoBehaviour
     private GameLoop gameLoop;
     [SerializeField] string CurrentColor; 
 
-    void Start()
+    protected void Start()
     {
         gameLoop = GameObject.FindWithTag("GameLoop").GetComponent<GameLoop>();
     }
@@ -23,19 +23,17 @@ public abstract class FishBase : MonoBehaviour
 
     public void Caught()
     {
-        // //code for being caught
-        // if (gameLoop.CurrentColor == CurrentColor)
-        // {
-        //     gameLoop.RightFish();
-        //     Destroy(gameObject);
-        // }
-        // else
-        // {
-        //     gameLoop.WrongFish();
-        //     Destroy(gameObject);
-        // }
-        
-        Destroy(gameObject);
+        //code for being caught
+        if (gameLoop.CurrentColor == CurrentColor)
+        {
+            gameLoop.RightFish();
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameLoop.WrongFish();
+            Destroy(gameObject);
+        }
         
     }
     

@@ -17,7 +17,7 @@ public class GameLoop : MonoBehaviour
     private GameObject[] allCatchUI;
     private GameObject currentActiveUI;
 
-    [SerializeField] public string CurrentColor; /*{ get; private set; }*/
+    public string CurrentColor; /*{ get; private set; }*/
 
 
     void Awake()
