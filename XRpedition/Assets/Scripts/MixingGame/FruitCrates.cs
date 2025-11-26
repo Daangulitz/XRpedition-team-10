@@ -6,6 +6,10 @@ public class ChestFruitSpawner : MonoBehaviour
 {
     public GameObject fruitPrefab;
 
+    [Header("Spawn Settings")]
+    public float spawnCooldown = 0.5f; // Time between spawns
+
+    private float nextSpawnTime = 0f;
     private HandGrabInteractor currentHand;
 
     private void OnTriggerEnter(Collider other)
@@ -27,22 +31,22 @@ public class ChestFruitSpawner : MonoBehaviour
         if (currentHand == null)
             return;
 
-        // Detect pinch
         bool isPinching = currentHand.Hand.GetFingerPinchStrength(HandFinger.Index) > 0.7f;
 
-        // Only spawn if pinching but nothing is grabbed
-        if (isPinching && !currentHand.HasSelectedInteractable)
+        // Only spawn if pinching, hand is empty, AND cooldown expired
+        if (isPinching &&
+            !currentHand.HasSelectedInteractable &&
+            Time.time >= nextSpawnTime)
         {
             SpawnFruitInHand(currentHand);
+            nextSpawnTime = Time.time + spawnCooldown; // Reset cooldown
         }
     }
 
     private void SpawnFruitInHand(HandGrabInteractor hand)
     {
-        // Instantiate fruit
         GameObject fruit = Instantiate(fruitPrefab);
 
-        // Place at pinch point
         Transform pinch = hand.PinchPoint;
         fruit.transform.position = pinch.position;
         fruit.transform.rotation = pinch.rotation;

@@ -39,4 +39,14 @@ public class FruitOrderManager : MonoBehaviour
         UpdateGUI();
     }
     
+    public bool IsValidFruit(string fruitTag)
+    {
+        foreach (string fruit in fruitNames)
+        {
+            if (fruit == fruitTag)
+                return true;
+        }
+        return false;
+    }
+    
 }
