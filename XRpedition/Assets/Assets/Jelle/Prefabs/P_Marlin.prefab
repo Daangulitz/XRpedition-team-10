@@ -48,9 +48,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2880918033583017018, guid: dafedecbf48ba564d841ca3cd964b824, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: dafedecbf48ba564d841ca3cd964b824, type: 3}
       propertyPath: m_Name
-      value: Marlin
+      value: P_Marlin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -11,6 +11,7 @@ public class GameLoop : MonoBehaviour
     private GameObject CatchGreen;
     private GameObject CatchYellow;
     private GameObject CatchPurple;
+    private GameObject CatchOrange;
     private GameObject Wrong;
     private GameObject Right;
 
@@ -27,11 +28,12 @@ public class GameLoop : MonoBehaviour
         CatchGreen = Canvas.transform.Find("Green").gameObject;
         CatchYellow = Canvas.transform.Find("Yellow").gameObject;
         CatchPurple = Canvas.transform.Find("Purple").gameObject;
+        CatchOrange = Canvas.transform.Find("Orange").gameObject;
         Wrong = Canvas.transform.Find("Wrong").gameObject;
         Right = Canvas.transform.Find("Right").gameObject;
 
         allCatchUI = new GameObject[] {
-            CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple
+            CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple, CatchOrange,
         };
     }
 
