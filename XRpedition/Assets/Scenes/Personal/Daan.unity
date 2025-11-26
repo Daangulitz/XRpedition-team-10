@@ -1294,7 +1294,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.084
+      value: -0.892
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1302,7 +1302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.309
+      value: -0.402
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1339,6 +1339,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: m_Name
       value: Klembord
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2345514790068135518, guid: d6f807a51e1fe264392604477dc4c109, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1775,7 +1779,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7596281b49a38b74fb7b9c204f929889, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
@@ -2461,6 +2465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blender
       objectReference: {fileID: 0}
+    - target: {fileID: 189702764006428025, guid: 1a86166dd0cd40346aa535ba7850f220, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 714424191062054851, guid: 1a86166dd0cd40346aa535ba7850f220, type: 3}
       propertyPath: m_LocalScale.x
       value: 175
@@ -2475,7 +2483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 714424191062054851, guid: 1a86166dd0cd40346aa535ba7850f220, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.323
+      value: 1.153
       objectReference: {fileID: 0}
     - target: {fileID: 714424191062054851, guid: 1a86166dd0cd40346aa535ba7850f220, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2781,6 +2789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruitkist_Appels
       objectReference: {fileID: 0}
+    - target: {fileID: 2415272176143637739, guid: 1baf829f6e524cb44b10fdfaa3b534e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3084707994170902097, guid: 1baf829f6e524cb44b10fdfaa3b534e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.9
@@ -2837,6 +2849,10 @@ PrefabInstance:
     - target: {fileID: 3590774600309343119, guid: a3936a6e3df75c14eb57872c716dd992, type: 3}
       propertyPath: m_Name
       value: Fruitkist_Pruimen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3590774600309343119, guid: a3936a6e3df75c14eb57872c716dd992, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4224146472110610741, guid: a3936a6e3df75c14eb57872c716dd992, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2895,6 +2911,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruitkist_Mandarijnen
       objectReference: {fileID: 0}
+    - target: {fileID: 1594171109748725497, guid: ba62c4e56c83a474291d8edb4dbf20d1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2113440023678487619, guid: ba62c4e56c83a474291d8edb4dbf20d1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.3
@@ -2951,6 +2971,10 @@ PrefabInstance:
     - target: {fileID: 3911052764845823663, guid: b16a687185bc0f44ab2da869b5f2de90, type: 3}
       propertyPath: m_Name
       value: Fruitkist_Banaan
+      objectReference: {fileID: 0}
+    - target: {fileID: 3911052764845823663, guid: b16a687185bc0f44ab2da869b5f2de90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4399182753304775701, guid: b16a687185bc0f44ab2da869b5f2de90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3049,6 +3073,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fruitkist_Blueberries
       objectReference: {fileID: 0}
+    - target: {fileID: 7846689312379030291, guid: 95b6b1e02a4cdda4c91e3e6ab8ff085e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3065,6 +3093,10 @@ PrefabInstance:
     - target: {fileID: 4934435019742028344, guid: 9002434d104bb21408bb496efeb8f787, type: 3}
       propertyPath: m_Name
       value: Fruitkist_Druiven
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934435019742028344, guid: 9002434d104bb21408bb496efeb8f787, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5706467741197203586, guid: 9002434d104bb21408bb496efeb8f787, type: 3}
       propertyPath: m_LocalPosition.x

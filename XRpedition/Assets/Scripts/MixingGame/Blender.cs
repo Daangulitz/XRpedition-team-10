@@ -29,6 +29,10 @@ public class Blender : MonoBehaviour
             FruitsAdded.Add(FruitTag);
             FruitInside++;
         }
+        else
+        {
+            FruitInside++;
+        }
         
         Destroy(other.gameObject);
 
@@ -41,9 +45,14 @@ public class Blender : MonoBehaviour
     private void Blend()
     {
         animator.SetTrigger("Mixing");
-        foreach (Transform child in Bowl)
-        { 
-            Destroy(child.gameObject);
+        _Fom.NewOrder();
+        if (FruitsAdded.Count >= 3)
+        {
+            
+        }
+        else
+        {
+            
         }
     }
 }
