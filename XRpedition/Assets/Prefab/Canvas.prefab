@@ -139,12 +139,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94af7cb9e3dc567479b054623e976298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CamFilterChange
-  mainCamera: {fileID: 0}
+  volume: {fileID: 0}
   NoRed: {fileID: 2800000, guid: a136b3aefed060345b5fab86e85c9e2e, type: 3}
   NoGreen: {fileID: 2800000, guid: 1d3eab88d5f2c2f409d5c6a5dd1ae7da, type: 3}
   NoBlue: {fileID: 2800000, guid: defb3dc4810a56e44bc2a416cbfd7b8a, type: 3}
   NoColor: {fileID: 2800000, guid: a0ef251344092d844a04fe70e61312c3, type: 3}
   LutWeight: 1
+  colorLookup: {fileID: 0}
 --- !u!1 &789749664730873545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1282,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &675595818653617484
 MonoBehaviour:
   m_ObjectHideFlags: 0
