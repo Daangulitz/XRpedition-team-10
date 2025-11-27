@@ -146,6 +146,9 @@ MonoBehaviour:
   NoColor: {fileID: 2800000, guid: a0ef251344092d844a04fe70e61312c3, type: 3}
   LutWeight: 1
   colorLookup: {fileID: 0}
+  MiniGames:
+  - {fileID: 2589591946491633794, guid: 7474d9b7405876d4194bed19ca9ca29f, type: 3}
+  ColorBlindCanvas: {fileID: 5277463628601985982}
 --- !u!1 &789749664730873545
 GameObject:
   m_ObjectHideFlags: 0

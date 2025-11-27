@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using TMPro;
 
@@ -49,4 +50,8 @@ public class FruitOrderManager : MonoBehaviour
         return false;
     }
     
+    public bool IsCorrectCombination(List<string> fruits)
+    {
+        return fruits.SequenceEqual(CurrentOrder);
+    }
 }

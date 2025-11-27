@@ -23,6 +23,9 @@ public class CamFilterChange : MonoBehaviour
 
     [SerializeField] private ColorLookup colorLookup;
 
+    [SerializeField] private GameObject[] MiniGames;
+    [SerializeField] private GameObject ColorBlindCanvas;
+
     private void Awake()
     {
         // Automatically find the Volume if not assigned
@@ -103,5 +106,12 @@ public class CamFilterChange : MonoBehaviour
 
         colorLookup.contribution.overrideState = true;
         colorLookup.contribution.value = LutWeight;
+        SetMiniGames();
+    }
+    
+    private void SetMiniGames()
+    {
+        Instantiate(MiniGames[Random.Range(0, MiniGames.Length)]);
+        Destroy(ColorBlindCanvas);
     }
 }

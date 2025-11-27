@@ -1,41 +1,49 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Blender : MonoBehaviour
 {
     [SerializeField] private FruitOrderManager _Fom;
-    [SerializeField] private Transform Bowl;
+    [SerializeField] private AudioClip InBlender;
+    [SerializeField] private AudioClip Blendering;
+    [SerializeField] private TextMeshProUGUI BlenderText;
+
+    private AudioSource audioSource;
+    private Animator animator;
 
     private int FruitInside = 0;
-    
-    public List<string> FruitsAdded = new List<string>();
-
-    private bool CorrectFruitInside;
-    private Animator animator;
+    private List<string> FruitsAdded = new List<string>();
 
     private void Start()
     {
         animator = GetComponent<Animator>();
-        _Fom = FindObjectOfType<FruitOrderManager>();
+        audioSource = GetComponent<AudioSource>();
+
+        if (_Fom == null)
+            _Fom = FindObjectOfType<FruitOrderManager>();
+
+        BlenderText.text = ""; 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        string FruitTag = other.tag;
+        string fruitTag = other.tag;
 
-        if (_Fom.IsValidFruit(FruitTag))
+        if (_Fom.IsValidFruit(fruitTag))
         {
-            FruitsAdded.Add(FruitTag);
-            FruitInside++;
+            FruitsAdded.Add(fruitTag);
         }
         else
         {
-            FruitInside++;
+            FruitsAdded.Add("WRONG");
         }
         
+        FruitInside++;
+        audioSource.clip = InBlender;
+        audioSource.Play();
         Destroy(other.gameObject);
-
+        
         if (FruitInside >= 3)
         {
             Blend();
@@ -45,14 +53,23 @@ public class Blender : MonoBehaviour
     private void Blend()
     {
         animator.SetTrigger("Mixing");
-        _Fom.NewOrder();
-        if (FruitsAdded.Count >= 3)
+
+        audioSource.clip = Blendering;
+        audioSource.Play();
+
+        bool allCorrect = _Fom.IsCorrectCombination(FruitsAdded);
+
+        if (allCorrect)
         {
-            
+            BlenderText.text = "Goed Gedaan";
         }
         else
         {
-            
+            BlenderText.text = "Verkeerde Combinatie";
         }
+        
+        _Fom.NewOrder();
+        FruitsAdded.Clear();
+        FruitInside = 0;
     }
 }

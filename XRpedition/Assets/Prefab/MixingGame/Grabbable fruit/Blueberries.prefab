@@ -199,7 +199,10 @@ PrefabInstance:
       addedObject: {fileID: 3810856261393279932}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -7115884816313141276}
+      addedObject: {fileID: 2864605996846292031}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -953016065860969866}
   m_SourcePrefab: {fileID: 100100000, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
 --- !u!1 &4655782940005832592 stripped
 GameObject:
@@ -218,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.Grabbable
-  _transferOnSecondSelection: 0
+  _transferOnSecondSelection: 1
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
   _oneGrabTransformer: {fileID: 0}
@@ -276,7 +279,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.115165174, y: 0.04569617, z: 0.115165174}
   m_Center: {x: -0.000000029802322, y: -0.002710279, z: 0.000000029802322}
---- !u!114 &-7115884816313141276
+--- !u!114 &2864605996846292031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655782940005832592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358cbd2353c662a42bb45a99d6772cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Oculus.Interaction::Oculus.Interaction.RigidbodyKinematicLocker
+--- !u!114 &-953016065860969866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
