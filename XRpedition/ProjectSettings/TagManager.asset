@@ -15,6 +15,9 @@ TagManager:
   - QDSUIIcon
   - QDSUITextSecondaryColor
   - GameLoop
+  - Net
+  - FishNet
+  - Spawner
   layers:
   - Default
   - TransparentFX

@@ -18,8 +18,9 @@ public class FishGameLoop : MonoBehaviour
     private GameObject[] allCatchUI;
     private GameObject currentActiveUI;
 
-    public string CurrentColor; /*{ get; private set; }*/
-
+    public string CurrentColor;
+    
+    private FishSpawner FishSpawner;
 
     void Awake()
     {
@@ -33,78 +34,105 @@ public class FishGameLoop : MonoBehaviour
         Right = Canvas.transform.Find("Right").gameObject;
 
         allCatchUI = new GameObject[] {
-            CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple, CatchOrange,
+            CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple, CatchOrange
         };
-    }
+        
+        FishSpawner = GameObject.FindWithTag("Spawner").GetComponent<FishSpawner>();    }
 
     void Start()
     {
         DisableAllUI();
         EnableUI("fish");
     }
-
-    private void EnableUI(string x)
+    
+    private void EnableUI(string type)
     {
-        // Kies random UI object
-        if (x == "fish")
+        StartCoroutine(EnableUISequence(type));
+    }
+
+    private IEnumerator EnableUISequence(string type)
+    {
+        if (type == "fish")
         {
             int randomIndex = Random.Range(0, allCatchUI.Length);
             currentActiveUI = allCatchUI[randomIndex];
 
             currentActiveUI.SetActive(true);
             CurrentColor = currentActiveUI.name;
+            SpawnFish(CurrentColor);
+
+            yield return new WaitForSeconds(TimeActive);
+            currentActiveUI.SetActive(false);
         }
-        else if (x == "right")
+        else if (type == "right")
         {
             currentActiveUI = Right;
             currentActiveUI.SetActive(true);
+
+            yield return new WaitForSeconds(TimeActive);
+            currentActiveUI.SetActive(false);
+
             EnableUI("fish");
-        }        
-        else if (x == "wrong")
+            yield break;
+        }
+        else if (type == "wrong")
         {
             currentActiveUI = Wrong;
             currentActiveUI.SetActive(true);
-            EnableUI("fish");
-        }
-        
 
-        // Na TimeActive weer uit
-        StartCoroutine(DisableAfterTime());
-    }
-
-    private IEnumerator DisableAfterTime()
-    {
-        yield return new WaitForSeconds(TimeActive);
-        DisableUI();
-    }
-
-    private void DisableUI()
-    {
-        if (currentActiveUI != null)
+            yield return new WaitForSeconds(TimeActive);
             currentActiveUI.SetActive(false);
+
+            EnableUI("fish");
+            yield break;
+        }
     }
 
     private void DisableAllUI()
     {
         foreach (var ui in allCatchUI)
             ui.SetActive(false);
-        
-        Wrong.SetActive((false));
-        Right.SetActive((false));
+
+        Wrong.SetActive(false);
+        Right.SetActive(false);
     }
-    
 
     public void WrongFish()
     {
         Debug.Log("Wrong fish!");
-        // eventueel nieuwe UI starten
         EnableUI("wrong");
     }
 
     public void RightFish()
     {
         Debug.Log("Right fish!");
-        // eventueel nieuwe UI starten
         EnableUI("right");
     }
+
+    private void SpawnFish(string color)
+    {
+        switch (color)
+        {
+            case "Red":
+                FishSpawner.SpawnSpecificFish(0);
+                break;            
+            case "Orange":
+                FishSpawner.SpawnSpecificFish(1);
+                break;            
+            case "Yellow":
+                FishSpawner.SpawnSpecificFish(2);
+                break;
+            case "Green":
+                FishSpawner.SpawnSpecificFish(3);
+                break;
+            case "Blue":
+                FishSpawner.SpawnSpecificFish(4);
+                break;
+            case "Purple":
+                FishSpawner.SpawnSpecificFish(5);
+                break;
+        }
+
+    }
+    
 }

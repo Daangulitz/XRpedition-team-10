@@ -5,17 +5,17 @@ using Unity.VisualScripting;
 
 public abstract class FishBase : MonoBehaviour
 {
-    private GameLoop gameLoop;
+    private FishGameLoop gameLoop;
     [SerializeField] string CurrentColor; 
 
     protected void Start()
     {
-        gameLoop = GameObject.FindWithTag("GameLoop").GetComponent<GameLoop>();
+        gameLoop = GameObject.FindWithTag("GameLoop").GetComponent<FishGameLoop>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Net"))
+        if (other.gameObject.CompareTag("FishNet"))
         {
             Caught();
         }
@@ -23,7 +23,7 @@ public abstract class FishBase : MonoBehaviour
 
     public void Caught()
     {
-        //code for being caught
+        //Destroy(gameObject);
         if (gameLoop.CurrentColor == CurrentColor)
         {
             gameLoop.RightFish();

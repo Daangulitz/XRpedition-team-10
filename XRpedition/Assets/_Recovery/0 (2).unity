@@ -494,81 +494,6 @@ Transform:
   - {fileID: 1198267778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &434515481
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 434515484}
-  - component: {fileID: 434515483}
-  - component: {fileID: 434515482}
-  m_Layer: 0
-  m_Name: '[BuildingBlock] Find Spawn Positions'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &434515482
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434515481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d14e43228043c04db9e374568cb89a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnOnStart: 1
-  SpawnObject: {fileID: 8240749116634132180, guid: 7cab184fcd1d83f42bed80f9db3e36ee, type: 3}
-  SpawnAmount: 1
-  MaxIterations: 1000
-  SpawnLocations: 3
-  Labels: 1
-  CheckOverlaps: 0
-  OverrideBounds: -1
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 127
-  SurfaceClearanceDistance: 0.1
---- !u!114 &434515483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434515481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
-  blockId: 93762ef0-9738-45f4-bb87-bdb9a0acb994
-  instanceId: b6c53236-bd74-4714-ae70-ea93e6bea545
-  version: 1
-  installationRoutineCheckpoint:
-    _installationRoutineId: 
-    _installationVariants: []
---- !u!4 &434515484
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434515481}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451378680
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,8 +2281,8 @@ Transform:
   - {fileID: 706344009}
   - {fileID: 881008057}
   - {fileID: 843284790}
-  - {fileID: 1767639827}
   - {fileID: 1741030}
+  - {fileID: 1767639827}
   m_Father: {fileID: 348601512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1571537217
@@ -2511,7 +2436,7 @@ GameObject:
   - component: {fileID: 1736448335}
   m_Layer: 0
   m_Name: FishSpawner
-  m_TagString: Spawner
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2544,13 +2469,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishSpawner
   FishPrefabs:
-  - {fileID: 3890849978499376143, guid: 5c4ca92cc071cb34ba3207118d046103, type: 3}
-  - {fileID: 3890849978499376143, guid: cc8f81474c80f8e4db7ff46081017c47, type: 3}
-  - {fileID: 3890849978499376143, guid: 6a8cf483918cd904fa56e054e524dc16, type: 3}
-  - {fileID: 3890849978499376143, guid: c03f937a515c7c549a4406d778465017, type: 3}
   - {fileID: 3890849978499376143, guid: c9d70b3effe8bbf4783461a64718d9fd, type: 3}
   - {fileID: 3890849978499376143, guid: c03f8864fa9b3eb489a735557adbf9e8, type: 3}
-  AmountFish: 67
+  - {fileID: 3890849978499376143, guid: c03f937a515c7c549a4406d778465017, type: 3}
+  - {fileID: 3890849978499376143, guid: 5c4ca92cc071cb34ba3207118d046103, type: 3}
+  - {fileID: 3890849978499376143, guid: 6a8cf483918cd904fa56e054e524dc16, type: 3}
+  - {fileID: 3890849978499376143, guid: cc8f81474c80f8e4db7ff46081017c47, type: 3}
+  AmountFish: 30
 --- !u!1 &1767639826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,7 +2653,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: -1
+  m_RendererIndex: 0
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -2830,7 +2755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4753215262918115710, guid: 583831e8a37f78f4b9b36e0ff001da1e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6292797137455602559, guid: 583831e8a37f78f4b9b36e0ff001da1e, type: 3}
       propertyPath: m_Layer
@@ -3380,10 +3305,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2130590841296538553, guid: 85cf469756517304588d52319a969ec9, type: 3}
-      propertyPath: m_TagString
-      value: FishNet
-      objectReference: {fileID: 0}
     - target: {fileID: 5148156394445894373, guid: 85cf469756517304588d52319a969ec9, type: 3}
       propertyPath: _handAligment
       value: 1
@@ -3391,10 +3312,6 @@ PrefabInstance:
     - target: {fileID: 5148156394445894373, guid: 85cf469756517304588d52319a969ec9, type: 3}
       propertyPath: _supportedGrabTypes
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603900552358147832, guid: 85cf469756517304588d52319a969ec9, type: 3}
-      propertyPath: m_TagString
-      value: FishNet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3418,4 +3335,3 @@ SceneRoots:
   - {fileID: 491441511}
   - {fileID: 106975628}
   - {fileID: 4118234009763088779}
-  - {fileID: 434515484}
