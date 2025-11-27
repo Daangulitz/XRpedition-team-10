@@ -24,6 +24,11 @@ public class FishSpawner : MonoBehaviour
             Instantiate(FishPrefabs[Random.Range(0, FishPrefabs.Length)], transform.position, Quaternion.identity);
         }
     }
+
+    public void SpawnSpecificFish(int x)
+    {
+        Instantiate(FishPrefabs[x], transform.position, Quaternion.identity);
+    }
     
     
 }

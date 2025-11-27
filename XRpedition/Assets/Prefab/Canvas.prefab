@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _facing: 0
-  _doubleSided: 0
+  _doubleSided: 1
 --- !u!114 &7141536064554882159
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,20 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - QDSUIToggleButton
+  - QDSUIToggleSwitch
+  - QDSUITooltip
+  - QDSUISharedThemeColor
+  - QDSUIAccentColor
+  - QDSUIBorderlessButton
+  - QDSUISecondaryButton
+  - QDSUIToggleBorderlessButton
+  - QDSUIIcon
+  - QDSUITextSecondaryColor
+  - GameLoop
+  - Net
+  - FishNet
+  - Spawner
   - PPCam
   - Apple
   - Banana
