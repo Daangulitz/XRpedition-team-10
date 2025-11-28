@@ -141,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.3
+      value: -8.32
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.y
@@ -149,7 +149,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.3600001
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalRotation.w
@@ -238,6 +238,10 @@ PrefabInstance:
     - target: {fileID: 5929615741442982399, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_Name
       value: Prachtige fruit collectie 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5929615741442982399, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8545289992177013229, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -534,7 +538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.77
+      value: -17.93
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.y
@@ -542,7 +546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.36
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2973301795274927969, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_LocalRotation.w
@@ -767,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3559259342889882736, guid: 4d03ec6b37a780c4fbfe5ff66ae81d72, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3598325659953459527, guid: 4d03ec6b37a780c4fbfe5ff66ae81d72, type: 3}
       propertyPath: m_LocalPosition.x
@@ -828,7 +832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170041467022844221, guid: 79f2615eaeff646468138e440f0ae260, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8016354405396410296, guid: 79f2615eaeff646468138e440f0ae260, type: 3}
       propertyPath: m_LocalPosition.x
@@ -929,7 +933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5929615741442982399, guid: 7c11c02e79ee4b541bdfe27b60518664, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
