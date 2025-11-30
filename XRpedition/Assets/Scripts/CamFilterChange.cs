@@ -47,22 +47,6 @@ public class CamFilterChange : MonoBehaviour
             }
         }
     }
-
-    private void Awake()
-    {
-        if (volume == null)
-        {
-            volume = FindObjectOfType<Volume>();
-        }
-
-        if (volume != null && volume.profile != null)
-        {
-            if (!volume.profile.TryGet<ColorLookup>(out colorLookup))
-            {
-                Debug.LogWarning("No ColorLookup found");
-            }
-        }
-    }
     
     private void Update()
     {

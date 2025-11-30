@@ -2034,7 +2034,7 @@
     "m_StageCapability": 3,
     "m_Value": {
         "x": 0.0,
-        "y": 8.5
+        "y": 0.5
     },
     "m_DefaultValue": {
         "x": -1.0,
@@ -2072,7 +2072,7 @@
     "m_ObjectId": "b905d226cd544f87896b18c01482547b",
     "m_Title": "WObble",
     "m_Position": {
-        "x": -2476.00048828125,
+        "x": -2476.000244140625,
         "y": -1205.5999755859375
     }
 }
@@ -3115,7 +3115,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 

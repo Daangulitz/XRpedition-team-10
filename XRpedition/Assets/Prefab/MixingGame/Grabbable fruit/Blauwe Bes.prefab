@@ -72,7 +72,7 @@ MonoBehaviour:
     _pinkyRequirement: 1
     _unselectMode: 0
   _movementProvider: {fileID: 0}
-  _handAligment: 0
+  _handAligment: 1
   _handGrabPoses: []
 --- !u!114 &4149931829635298464
 MonoBehaviour:
@@ -163,7 +163,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b17effc509226ce4290e4ec01590fd25, type: 2}
     - target: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: m_Name
-      value: Blueberries
+      value: Blauwe Bes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: m_Layer
@@ -171,7 +171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: m_TagString
-      value: Blueberries
+      value: Blauwe bes
       objectReference: {fileID: 0}
     - target: {fileID: 2687844824284650151, guid: 8aa8c47637f51c444ad6439d2177cd25, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -253,8 +253,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1

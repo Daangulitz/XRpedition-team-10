@@ -1,54 +1,45 @@
+using Oculus.Interaction;
 using UnityEngine;
 using Oculus.Interaction.HandGrab;
-using Oculus.Interaction.Input;
 
 public class ChestFruitSpawner : MonoBehaviour
 {
-    public GameObject fruitPrefab;
+    public GameObject[] fruitPrefab;
 
     [Header("Spawn Settings")]
-    public float spawnCooldown = 0.5f; // Time between spawns
+    public Transform spawnPoint;       // Empty GameObject where fruits appear
+    public float spawnCooldown = 0.5f; // Prevents multiple spawns too quickly
 
     private float nextSpawnTime = 0f;
-    private HandGrabInteractor currentHand;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        var hand = other.GetComponentInParent<HandGrabInteractor>();
-        if (hand != null)
-            currentHand = hand;
-    }
 
     private void OnTriggerExit(Collider other)
     {
         var hand = other.GetComponentInParent<HandGrabInteractor>();
-        if (hand == currentHand)
-            currentHand = null;
-    }
-
-    private void Update()
-    {
-        if (currentHand == null)
-            return;
-
-        bool isPinching = currentHand.Hand.GetFingerPinchStrength(HandFinger.Index) > 0.7f;
-
-        // Only spawn if pinching, hand is empty, AND cooldown expired
-        if (isPinching &&
-            !currentHand.HasSelectedInteractable &&
-            Time.time >= nextSpawnTime)
+        if (hand != null && Time.time >= nextSpawnTime)
         {
-            SpawnFruitInHand(currentHand);
-            nextSpawnTime = Time.time + spawnCooldown; // Reset cooldown
+            SpawnFruit();
+            nextSpawnTime = Time.time + spawnCooldown;
         }
     }
 
-    private void SpawnFruitInHand(HandGrabInteractor hand)
+    private void SpawnFruit()
     {
-        GameObject fruit = Instantiate(fruitPrefab);
+        if (fruitPrefab == null || spawnPoint == null)
+            return;
 
-        Transform pinch = hand.PinchPoint;
-        fruit.transform.position = pinch.position;
-        fruit.transform.rotation = pinch.rotation;
+        GameObject fruit = Instantiate(fruitPrefab[Random.Range(0, fruitPrefab.Length)], spawnPoint.position, spawnPoint.rotation);
+
+        // Ensure it has Rigidbody & Grabbable enabled
+        Rigidbody rb = fruit.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+        }
+
+        var grabbable = fruit.GetComponent<Grabbable>();
+        if (grabbable != null)
+            grabbable.enabled = true;
     }
 }
