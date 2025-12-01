@@ -29,7 +29,7 @@ public class Blender : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (_Fom == null) _Fom = FindObjectOfType<FruitOrderManager>();
         BlenderText.text = "";
-        if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("Fill", matfill);
+        if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("_Fill", matfill);
     }
 
     private void Update()
@@ -67,7 +67,7 @@ public class Blender : MonoBehaviour
         {
             FruitsAdded.Add(fruitTag);
             matfill += 0.133f;
-            if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("Fill", matfill);
+            if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("_Fill", matfill);
 
             audioSource.clip = InBlender;
             audioSource.Play();
@@ -108,7 +108,7 @@ public class Blender : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         matfill = 0.1f;
-        if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("Fill", matfill);
+        if (LiquetteMaterial != null) LiquetteMaterial.SetFloat("_Fill", matfill);
         if (ResetGameInt >= 3) ResetGame();
     }
 
