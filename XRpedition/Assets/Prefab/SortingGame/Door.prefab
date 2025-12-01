@@ -434,6 +434,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74668369175f41e458c82d7e1065efbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FinishDoor
-  HumanName: FatHuman
-  TestParticelEffect: {fileID: 2813042903725284855, guid: b1df49e9c6c8af54a995ead7a8d1c77e, type: 3}
-  TargetPosition: {fileID: 7017155259109934177}
+  HumanName:
+  - HumanBlue
+  - HumanRed
+  - HumanYellow
+  - HumanGreen
+  Materials:
+  - {fileID: 2100000, guid: f7cb9918c7d4e514a99dc21438bbba86, type: 2}
+  - {fileID: 2100000, guid: 9102ef7ecb2a06941897f8c73ac36e5e, type: 2}
+  - {fileID: 2100000, guid: c9ee00f4ffc2d4e43831e07777aa9588, type: 2}
+  - {fileID: 2100000, guid: d4f763c082789d74880e4d4e23b9b829, type: 2}
+  doorCubes:
+  - {fileID: 6235374879753936902}
+  - {fileID: 6267068570724302788}
+  - {fileID: 4849531182934623430}
