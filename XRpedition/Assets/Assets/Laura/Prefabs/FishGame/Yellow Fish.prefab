@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishMovement
   CurrentColor: Yellow
-  FishCaught: {fileID: 8300000, guid: 3b6bff20710507b43b234830fb34e808, type: 3}
+  FishCaught: {fileID: 8300000, guid: b6ef870dc58c19846852aef6e1b33d60, type: 3}
   RadiusDestroy: 10
   speed: 0.5
   rotationSpeed: 160
