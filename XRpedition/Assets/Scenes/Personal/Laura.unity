@@ -1257,7 +1257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &896319892
 Transform:
   m_ObjectHideFlags: 0
@@ -3048,7 +3048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnOnStart: 1
-  SpawnObject: {fileID: 1624129006929604198, guid: 05bcde5f522931a4d9bf431eb25325cd, type: 3}
+  SpawnObject: {fileID: 5737470101259657159, guid: 3838542e787dc9d42a846a40825edd9c, type: 3}
   SpawnAmount: 1
   MaxIterations: 1000
   SpawnLocations: 3
