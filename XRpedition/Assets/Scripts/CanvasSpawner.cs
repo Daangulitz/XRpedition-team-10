@@ -18,7 +18,6 @@ public class SpawnMenuInFront : MonoBehaviour
     {
         if (menuInstance != null) return;
 
-        Debug.LogError("Spawning menu");
         Vector3 forward = playerHead.forward;
         forward.y = 0;                   
         forward.Normalize();
