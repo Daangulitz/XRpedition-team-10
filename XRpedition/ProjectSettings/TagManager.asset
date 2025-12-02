@@ -18,6 +18,18 @@ TagManager:
   - Net
   - FishNet
   - Spawner
+  - PPCam
+  - Apple
+  - Banana
+  - Druif
+  - Mandarijn
+  - Pruim
+  - Blauwe bes
+  - Klembord
+  - HumanBlue
+  - HumanGreen
+  - HumanRed
+  - HumanYellow
   layers:
   - Default
   - TransparentFX

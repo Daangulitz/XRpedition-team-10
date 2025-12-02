@@ -14,12 +14,12 @@ GameObject:
   - component: {fileID: -8546247160315649073}
   - component: {fileID: -8673972848869729379}
   m_Layer: 0
-  m_Name: MeshVolume
+  m_Name: MeshVolumeTry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1132682185376712905
 Transform:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: be1340ae6593bfa46888d2c5b6179e2c, type: 2}
+  - {fileID: 2100000, guid: 8c6d06fef44d86e48b8d9a954dd89c32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

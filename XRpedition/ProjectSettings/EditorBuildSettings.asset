@@ -5,9 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Personal/Laura.unity
     guid: 02a4b20a844ad054e8a617383f880c0d
+  - enabled: 1
+    path: Assets/Scenes/Personal/Daan.unity
+    guid: 291b85992b77c5746a03583f8b4b302e
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 25a5efce83adc6140bd2562023f968ab, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 0ad9d941136f5584f8821a6ed025ae56, type: 2}
