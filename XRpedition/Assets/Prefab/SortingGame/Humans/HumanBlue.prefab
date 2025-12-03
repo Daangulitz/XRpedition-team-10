@@ -288,7 +288,7 @@ NavMeshAgent:
   m_Height: 1.8
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &2507305975119657218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanWalker
   maxTimeBetweenMoves: 5
   walkRadius: 10
+  player: {fileID: 0}
+  maxDistanceFromPlayer: 2
 --- !u!54 &8541156626019310699
 Rigidbody:
   m_ObjectHideFlags: 0

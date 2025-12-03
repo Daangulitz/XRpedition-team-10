@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FinishDoor : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class FinishDoor : MonoBehaviour
     private List<string> remainingHumans;
     private List<Material> remainingMaterials;
     private string currentHumanTag;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
 
     private void Start()
     {
         // Initialize remaining humans/materials lists
         remainingHumans = new List<string>(HumanName);
         remainingMaterials = new List<Material>(Materials);
+        audioSource = GetComponent<AudioSource>();
 
         if (doorCubes.Length == 0)
         {
@@ -30,6 +34,8 @@ public class FinishDoor : MonoBehaviour
         if (other.gameObject.CompareTag(currentHumanTag))
         {
             Destroy(other.gameObject);
+            audioSource.clip = audioClip;
+            audioSource.Play();
             
             int indexToRemove = remainingHumans.IndexOf(currentHumanTag);
             if (indexToRemove >= 0)
@@ -44,7 +50,7 @@ public class FinishDoor : MonoBehaviour
             }
             else
             {
-                Debug.Log("All humans finished!");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }

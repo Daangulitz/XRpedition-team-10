@@ -303,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanWalker
   maxTimeBetweenMoves: 5
   walkRadius: 10
+  player: {fileID: 0}
+  maxDistanceFromPlayer: 2
 --- !u!54 &8541156626019310699
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -4,8 +4,11 @@ using UnityEngine.AI;
 
 public class RandomWalker : MonoBehaviour
 {
-    public float maxTimeBetweenMoves = 5f;   
-    public float walkRadius = 0f;           
+    public float maxTimeBetweenMoves = 5f;
+    public float walkRadius = 10f;
+
+    public Transform player;
+    public float maxDistanceFromPlayer = 15f;
 
     private NavMeshAgent agent;
     private NavMeshSurface surface;
@@ -14,16 +17,25 @@ public class RandomWalker : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        
+
         surface = FindAnyObjectByType<NavMeshSurface>();
 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        
         if (surface == null)
         {
             Debug.LogError("No NavMeshSurface found in the scene!");
             return;
         }
 
-        // Auto-calc walking radius from surface bounds
+        if (player == null)
+        {
+            Debug.LogError("No player assigned to RandomWalker!");
+            enabled = false;
+            return;
+        }
+
+        // Auto-calc walking radius from navmesh surface
         Bounds b = surface.navMeshData.sourceBounds;
         walkRadius = Mathf.Max(b.extents.x, b.extents.z);
 
@@ -38,7 +50,6 @@ public class RandomWalker : MonoBehaviour
             !agent.pathPending &&
             agent.remainingDistance <= agent.stoppingDistance;
 
-        // If reached OR time expired → new target
         if (reached || timer >= maxTimeBetweenMoves)
         {
             PickNewDestination();
@@ -48,13 +59,29 @@ public class RandomWalker : MonoBehaviour
 
     void PickNewDestination()
     {
-        Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
-        randomDirection += transform.position;
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, walkRadius, NavMesh.AllAreas))
+        // Try multiple times to get a valid destination
+        for (int i = 0; i < 20; i++)
         {
-            agent.SetDestination(hit.position);
+            Vector3 randomDirection = Random.insideUnitSphere * walkRadius;
+
+            // Center the wander around the PLAYER, not the AI
+            randomDirection += player.position;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomDirection, out hit, walkRadius, NavMesh.AllAreas))
+            {
+                // Check if position is not too far from the player
+                float dist = Vector3.Distance(hit.position, player.position);
+
+                if (dist <= maxDistanceFromPlayer)
+                {
+                    agent.SetDestination(hit.position);
+                    return;
+                }
+            }
         }
+
+        // Fallback: stay at current position
+        agent.SetDestination(transform.position);
     }
 }
