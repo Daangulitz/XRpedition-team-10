@@ -1138,11 +1138,6 @@ MonoBehaviour:
   installationRoutineCheckpoint:
     _installationRoutineId: 2063f481-1b63-4eda-9ee8-a00df98536bc
     _installationVariants: []
---- !u!1 &901363166 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 21178049761835819, guid: 2206ba5d6a2126547a85b6108394715c, type: 3}
-  m_PrefabInstance: {fileID: 1883934111}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1571777570
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,9 +1535,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8781467801781267157, guid: 2206ba5d6a2126547a85b6108394715c, type: 3}
-      propertyPath: ColorBlindCanvas
+      propertyPath: MiniGames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781467801781267157, guid: 2206ba5d6a2126547a85b6108394715c, type: 3}
+      propertyPath: 'MiniGames.Array.data[2]'
       value: 
-      objectReference: {fileID: 901363166}
+      objectReference: {fileID: 3263433188464996572, guid: a69595ecf838c3a4b866938198ea93b4, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
