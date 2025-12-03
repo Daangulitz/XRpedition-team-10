@@ -1352,6 +1352,7 @@ MonoBehaviour:
   BlenderText: {fileID: 7447326634580339110}
   KlemBordPrefab: {fileID: 2652732894936883811, guid: c2308c5a2bef8a546aeefbce7be6a261, type: 3}
   KlemBordSpawnPoint: {fileID: 2834115649331472300}
+  LiquetteMaterial: {fileID: 0}
 --- !u!136 &8089046354713230246
 CapsuleCollider:
   m_ObjectHideFlags: 0
