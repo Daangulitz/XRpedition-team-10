@@ -49,6 +49,7 @@ public class FishMovement : FishBase
 
     void Update()
     {
+        base.Update();
         UpdateDirectionTimer();
     }
 
