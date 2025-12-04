@@ -9,7 +9,7 @@ public class SpawnMenuInFront : MonoBehaviour
 
     private GameObject menuInstance;
 
-    private void Start()
+    private void Awake()
     {
         SpawnMenu();
     }

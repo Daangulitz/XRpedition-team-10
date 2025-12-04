@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 7691467358138803732}
   m_Layer: 3
   m_Name: FishGameUI
-  m_TagString: Untagged
+  m_TagString: FishGameCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

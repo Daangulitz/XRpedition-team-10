@@ -30,6 +30,7 @@ TagManager:
   - HumanGreen
   - HumanRed
   - HumanYellow
+  - FishGameCanvas
   layers:
   - Default
   - TransparentFX

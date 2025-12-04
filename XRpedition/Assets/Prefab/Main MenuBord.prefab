@@ -130,6 +130,14 @@ PrefabInstance:
       propertyPath: ColorBlindCanvas
       value: 
       objectReference: {fileID: 21178049761835819}
+    - target: {fileID: 3565609690933236799, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
+      propertyPath: MiniGames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565609690933236799, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
+      propertyPath: 'MiniGames.Array.data[2]'
+      value: 
+      objectReference: {fileID: 3263433188464996572, guid: a69595ecf838c3a4b866938198ea93b4, type: 3}
     - target: {fileID: 5277463628601985982, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_Name
       value: Canvas
