@@ -550,7 +550,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967287
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -629,7 +629,7 @@ MonoBehaviour:
   menuPrefab: {fileID: 21178049761835819, guid: 2206ba5d6a2126547a85b6108394715c, type: 3}
   playerHead: {fileID: 488467812}
   distanceInFront: 0.2
-  heightOffset: -1.5
+  heightOffset: -1.4
 --- !u!114 &488467817
 MonoBehaviour:
   m_ObjectHideFlags: 0

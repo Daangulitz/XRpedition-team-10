@@ -47,7 +47,7 @@ MonoBehaviour:
   menuPrefab: {fileID: 8882933696086915116, guid: 67da636c911670a4a871b9298e0b80d7, type: 3}
   playerHead: {fileID: 2404277336045221096}
   distanceInFront: 0.5
-  heightOffset: -2.5
+  heightOffset: -1.5
 --- !u!1 &3625511263329989413
 GameObject:
   m_ObjectHideFlags: 0

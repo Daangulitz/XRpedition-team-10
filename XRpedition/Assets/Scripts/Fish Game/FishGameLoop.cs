@@ -26,32 +26,36 @@ public class FishGameLoop : MonoBehaviour
     
     private FishSpawner FishSpawner;
 
-    void Start()
-    {
-        Canvas = GameObject.FindWithTag("FishGameCanvas");
-        // Find UI elements
-        CatchRed = Canvas.transform.Find("Red").gameObject;
-        CatchBlue = Canvas.transform.Find("Blue").gameObject;
-        CatchGreen = Canvas.transform.Find("Green").gameObject;
-        CatchYellow = Canvas.transform.Find("Yellow").gameObject;
-        CatchPurple = Canvas.transform.Find("Purple").gameObject;
-        CatchOrange = Canvas.transform.Find("Orange").gameObject;
-        Wrong = Canvas.transform.Find("Wrong").gameObject;
-        Right = Canvas.transform.Find("Right").gameObject;
 
-        allCatchUI = new GameObject[] {
-            CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple, CatchOrange
-        };
+    private void Update()
+    {
+        if (Canvas == null)
+        {
+            Canvas = GameObject.FindWithTag("FishGameCanvas");
+            // Find UI elements
+            CatchRed = Canvas.transform.Find("Red").gameObject;
+            CatchBlue = Canvas.transform.Find("Blue").gameObject;
+            CatchGreen = Canvas.transform.Find("Green").gameObject;
+            CatchYellow = Canvas.transform.Find("Yellow").gameObject;
+            CatchPurple = Canvas.transform.Find("Purple").gameObject;
+            CatchOrange = Canvas.transform.Find("Orange").gameObject;
+            Wrong = Canvas.transform.Find("Wrong").gameObject;
+            Right = Canvas.transform.Find("Right").gameObject;
+
+            allCatchUI = new GameObject[] {
+                CatchRed, CatchBlue, CatchGreen, CatchYellow, CatchPurple, CatchOrange
+            };
         
-        FishSpawner = GameObject.FindWithTag("Spawner").GetComponent<FishSpawner>();
+            FishSpawner = GameObject.FindWithTag("Spawner").GetComponent<FishSpawner>();
         
-        fishNetRenderers = GameObject.FindGameObjectsWithTag("FishNet")
-            .Select(go => go.GetComponent<Renderer>())
-            .Where(r => r != null)
-            .ToArray();
+            fishNetRenderers = GameObject.FindGameObjectsWithTag("FishNet")
+                .Select(go => go.GetComponent<Renderer>())
+                .Where(r => r != null)
+                .ToArray();
         
-        DisableAllUI();
-        EnableUI("fish");
+            DisableAllUI();
+            EnableUI("fish");
+        }
     }
     
     
@@ -70,16 +74,14 @@ public class FishGameLoop : MonoBehaviour
             currentActiveUI.SetActive(true);
             CurrentColor = currentActiveUI.name;
 
-            // Spawn corresponding fish
             SpawnFish(CurrentColor);
-            
             UpdateFishNetMaterial(CurrentColor);
-
-            yield return new WaitForSeconds(TimeActive);
-            currentActiveUI.SetActive(false);
         }
         else if (type == "right")
         {
+            // Hide old objective
+            currentActiveUI?.SetActive(false);
+
             currentActiveUI = Right;
             currentActiveUI.SetActive(true);
 
@@ -91,6 +93,9 @@ public class FishGameLoop : MonoBehaviour
         }
         else if (type == "wrong")
         {
+            // Hide old objective
+            currentActiveUI?.SetActive(false);
+
             currentActiveUI = Wrong;
             currentActiveUI.SetActive(true);
 
@@ -101,6 +106,7 @@ public class FishGameLoop : MonoBehaviour
             yield break;
         }
     }
+
 
     private void DisableAllUI()
     {

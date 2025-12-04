@@ -11,6 +11,7 @@ public class SpawnMenuInFront : MonoBehaviour
 
     private void Awake()
     {
+        playerHead = GameObject.FindWithTag("MainCamera").transform;
         SpawnMenu();
     }
     
