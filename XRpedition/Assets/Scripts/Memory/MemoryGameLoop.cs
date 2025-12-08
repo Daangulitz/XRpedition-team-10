@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MemoryGameLoop : MonoBehaviour
 {
@@ -14,8 +16,12 @@ public class MemoryGameLoop : MonoBehaviour
     public GameObject Card2Prefab;
 
     private GameObject[] cards;
+
+    [SerializeField] private GameObject UICanvas;
     
-    private int[] gridValues; 
+    private int[] gridValues;
+
+    [SerializeField] private Transform playerHead;
 
 
     void Start()
@@ -25,8 +31,19 @@ public class MemoryGameLoop : MonoBehaviour
         SpawnCards();
         
         cards = GameObject.FindGameObjectsWithTag("Card");
+        
+        playerHead = GameObject.FindWithTag("MainCamera").transform;
+        
+        Instantiate(UICanvas, playerHead);
+        
+        
     }
-    
+
+    private void Update()
+    {
+        CheckIfCardsAreSame();
+    }
+
     private void GenerateValues()
     {
         int totalCards = cardPrefabs.Length * 2;
@@ -64,7 +81,7 @@ public class MemoryGameLoop : MonoBehaviour
             int col = i % columns;
 
             Vector3 position = new Vector3(
-                col * spacing, 0, row * spacing
+                col * spacing, 1, row * spacing
             );
         
             GameObject card = Instantiate(prefab, position, Quaternion.identity);
@@ -74,7 +91,7 @@ public class MemoryGameLoop : MonoBehaviour
 
     private void CheckIfCardsAreSame()
     {
-        if (Card1Prefab == Card2Prefab)
+        if (Card1Prefab.name == Card2Prefab.name && Card1Prefab != Card2Prefab && Card1Prefab !=null)
         {
             RightMatch();
         }
@@ -82,7 +99,11 @@ public class MemoryGameLoop : MonoBehaviour
 
     private void RightMatch()
     {
-        
+        Card1Prefab.GetComponent<Card>().destroyCard();
+        Card2Prefab.GetComponent<Card>().destroyCard();
+
+        Card1Prefab = null;
+        Card2Prefab = null;
     }
 
 }

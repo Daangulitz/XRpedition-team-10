@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5366048739628741813}
   m_Layer: 0
   m_Name: Game
-  m_TagString: Untagged
+  m_TagString: GameLoop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,4 +54,9 @@ MonoBehaviour:
   - {fileID: 9201190192403955174, guid: c7289efe124f6f0418c8f35ecf3160c0, type: 3}
   - {fileID: 7693054444317686231, guid: 7ef0d38137b1d2d4688562f427da14f8, type: 3}
   columns: 4
+  rows: 4
   spacing: 0.3
+  Card1Prefab: {fileID: 0}
+  Card2Prefab: {fileID: 0}
+  UICanvas: {fileID: 8477812799271410022, guid: 5790dd2c85cea2b46abff3edb2395bc5, type: 3}
+  playerHead: {fileID: 0}
