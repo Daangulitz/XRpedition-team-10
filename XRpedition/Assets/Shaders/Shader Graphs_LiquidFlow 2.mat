@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2938995448078128575
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Editor::UnityEditor.Rendering.Universal.AssetVersion
-  version: 10
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LiquidFlow 1
-  m_Shader: {fileID: -6465566751694194690, guid: ab2a78405ea97d046ab4ce7db950f5ca, type: 3}
+  m_Name: Shader Graphs_LiquidFlow 2
+  m_Shader: {fileID: -6465566751694194690, guid: 808b890d6d670684c8a571a352555d4a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -51,18 +38,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.1
+    - _Fill: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WobbleX: 0
     - _WobbleZ: 0
     - _XRMotionVectorsPass: 1
     m_Colors:
-    - _SideColour: {r: 0.088579535, g: 0.5396226, b: 0.099054396, a: 1}
-    - _TopColour: {r: 0.1614168, g: 0.86415094, b: 0.1736382, a: 1}
+    - _SideColour: {r: 0.088655606, g: 0.5394797, b: 0.09989874, a: 1}
+    - _TopColour: {r: 0.16202943, g: 0.8631574, b: 0.17464745, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &8960000321944676460
+--- !u!114 &6215519658587000548
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

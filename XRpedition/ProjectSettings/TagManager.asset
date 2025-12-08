@@ -31,6 +31,7 @@ TagManager:
   - HumanRed
   - HumanYellow
   - FishGameCanvas
+  - SmoothieGlas
   layers:
   - Default
   - TransparentFX

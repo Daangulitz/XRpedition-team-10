@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class FruitOrderManager : MonoBehaviour
 {
@@ -14,8 +16,8 @@ public class FruitOrderManager : MonoBehaviour
     private void Start()
     {
         validFruitSet = new HashSet<string>(fruitNames);
-        NewOrder();
     }
+    
 
     private void UpdateGUI()
     {
