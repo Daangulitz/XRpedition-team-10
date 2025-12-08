@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public abstract class FishBase : MonoBehaviour
@@ -15,6 +16,8 @@ public abstract class FishBase : MonoBehaviour
     [SerializeField] private float RadiusDestroy;
 
     private FishSpawner spawner;
+
+    private int count;
 
     protected void Start()
     {
@@ -58,7 +61,6 @@ public abstract class FishBase : MonoBehaviour
         {
             gameLoop.WrongFish();
         }
-        
     }
     
     

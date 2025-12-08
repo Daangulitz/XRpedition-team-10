@@ -9,8 +9,9 @@ public class SpawnMenuInFront : MonoBehaviour
 
     private GameObject menuInstance;
 
-    private void Start()
+    private void Awake()
     {
+        playerHead = GameObject.FindWithTag("MainCamera").transform;
         SpawnMenu();
     }
     
@@ -18,7 +19,6 @@ public class SpawnMenuInFront : MonoBehaviour
     {
         if (menuInstance != null) return;
 
-        Debug.LogError("Spawning menu");
         Vector3 forward = playerHead.forward;
         forward.y = 0;                   
         forward.Normalize();
