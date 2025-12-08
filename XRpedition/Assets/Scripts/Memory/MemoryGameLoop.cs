@@ -1,6 +1,5 @@
-using System;
+using System.Collections;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class MemoryGameLoop : MonoBehaviour
 {
@@ -8,40 +7,30 @@ public class MemoryGameLoop : MonoBehaviour
     [SerializeField] private GameObject[] cardPrefabs;
 
     [Header("Grid Settings")]
-    [SerializeField] private int columns = 4; 
+    [SerializeField] private int columns = 4;
     [SerializeField] private int rows = 4;
-    [SerializeField] private float spacing = 2; 
-    
-    public GameObject Card1Prefab;
-    public GameObject Card2Prefab;
+    [SerializeField] private float spacing = 2f;
 
-    private GameObject[] cards;
-
+    [Header("UI")]
     [SerializeField] private GameObject UICanvas;
-    
-    private int[] gridValues;
 
+    [Header("VR")]
     [SerializeField] private Transform playerHead;
 
+    public Card Card1;
+    public Card Card2;
+
+    private int[] gridValues;
+    private bool checkingMatch = false;
 
     void Start()
     {
         GenerateValues();
         Shuffle(gridValues);
         SpawnCards();
-        
-        cards = GameObject.FindGameObjectsWithTag("Card");
-        
-        playerHead = GameObject.FindWithTag("MainCamera").transform;
-        
-        Instantiate(UICanvas, playerHead);
-        
-        
-    }
 
-    private void Update()
-    {
-        CheckIfCardsAreSame();
+        playerHead = GameObject.FindWithTag("MainCamera").transform;
+        Instantiate(UICanvas, playerHead);
     }
 
     private void GenerateValues()
@@ -50,7 +39,6 @@ public class MemoryGameLoop : MonoBehaviour
         gridValues = new int[totalCards];
 
         int index = 0;
-
         for (int i = 0; i < cardPrefabs.Length; i++)
         {
             gridValues[index] = i;
@@ -58,7 +46,7 @@ public class MemoryGameLoop : MonoBehaviour
             index += 2;
         }
     }
-    
+
     private void Shuffle(int[] array)
     {
         for (int i = 0; i < array.Length; i++)
@@ -69,41 +57,59 @@ public class MemoryGameLoop : MonoBehaviour
             array[i] = temp;
         }
     }
-    
+
     private void SpawnCards()
     {
         for (int i = 0; i < gridValues.Length; i++)
         {
             int id = gridValues[i];
             GameObject prefab = cardPrefabs[id];
-        
+
             int row = i / columns;
             int col = i % columns;
 
             Vector3 position = new Vector3(
-                col * spacing, 1, row * spacing
+                col * spacing, 2.1f, row * spacing
             );
-        
-            GameObject card = Instantiate(prefab, position, Quaternion.identity);
-            card.transform.SetParent(transform, false);
+
+            GameObject cardObj = Instantiate(prefab, position, Quaternion.identity);
+            cardObj.transform.SetParent(transform, false);
+
+            Card card = cardObj.AddComponent<Card>();
+            card.gameLoop = this;
+            card.cardID = id;
         }
     }
 
-    private void CheckIfCardsAreSame()
+    public void TryCheckCards()
     {
-        if (Card1Prefab.name == Card2Prefab.name && Card1Prefab != Card2Prefab && Card1Prefab !=null)
+        if (Card1 != null && Card2 != null && !checkingMatch)
         {
-            RightMatch();
+            StartCoroutine(CheckCards());
         }
     }
 
-    private void RightMatch()
+    private IEnumerator CheckCards()
     {
-        Card1Prefab.GetComponent<Card>().destroyCard();
-        Card2Prefab.GetComponent<Card>().destroyCard();
+        checkingMatch = true;
 
-        Card1Prefab = null;
-        Card2Prefab = null;
+        if (Card1.cardID == Card2.cardID)
+        {
+            // Match gevonden
+            yield return new WaitForSeconds(0.5f); // korte pauze
+            Card1.DestroyCard();
+            Card2.DestroyCard();
+        }
+        else
+        {
+            // Geen match, reset kaarten
+            yield return new WaitForSeconds(1f);
+            Card1.ResetCard();
+            Card2.ResetCard();
+        }
+
+        Card1 = null;
+        Card2 = null;
+        checkingMatch = false;
     }
-
 }
