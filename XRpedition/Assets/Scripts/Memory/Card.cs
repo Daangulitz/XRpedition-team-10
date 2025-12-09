@@ -1,65 +1,78 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    public int cardID;
-    public MemoryGameLoop gameLoop;
+    public float ID;
 
-    private bool isFlipped = false;
-    private bool isAnimating = false;
+    [HideInInspector] public MemoryGameLoop gameLoop;
+    
+    [HideInInspector] public bool IsAddedToManager = false;
 
-    [Header("Flip Settings")]
-    [SerializeField] private float flipDuration = 0.3f;
-
-    /// <summary>
-    /// Wordt aangeroepen wanneer de speler de kaart selecteert in VR
-    /// </summary>
-    public void Flip()
+    private void Update()
     {
-        if (isFlipped || isAnimating) return;
 
-        isFlipped = true;
-        gameLoop.Card1 ??= this;
-        if (gameLoop.Card1 != this)
-            gameLoop.Card2 ??= this;
-
-        // Start smooth flip animatie
-        StartCoroutine(FlipAnimation(180f));
-
-        // Check op match in de game loop
-        gameLoop.TryCheckCards();
-    }
-
-    public void ResetCard()
-    {
-        if (!isFlipped || isAnimating) return;
-
-        isFlipped = false;
-        StartCoroutine(FlipAnimation(-180f));
-    }
-
-    public void DestroyCard()
-    {
-        Destroy(gameObject);
-    }
-
-    private IEnumerator FlipAnimation(float angle)
-    {
-        isAnimating = true;
-
-        Quaternion startRot = transform.rotation;
-        Quaternion endRot = startRot * Quaternion.Euler(angle, 0f, 0f);
-
-        float elapsed = 0f;
-        while (elapsed < flipDuration)
+        if (!IsAddedToManager && IsFlippedUp())
         {
-            transform.rotation = Quaternion.Slerp(startRot, endRot, elapsed / flipDuration);
+            AddIDToManager();
+            IsAddedToManager = true;
+        }
+        else if (IsAddedToManager && !IsFlippedUp())
+        { 
+            if (gameLoop.CardIDs[0] == ID)
+            {
+                gameLoop.CardIDs.RemoveAt(0);
+            } 
+            else if (gameLoop.CardIDs[1] == ID)
+            {
+                gameLoop.CardIDs.RemoveAt(1);
+            }
+            IsAddedToManager = false;
+        }
+    }
+
+    public bool IsFlippedUp()
+    {
+        float zDelta = Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.z, 0));
+        float xDelta = Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.x, 0));
+        
+        return zDelta > gameLoop.flipRange || xDelta > gameLoop.flipRange;
+    }
+
+    private void AddIDToManager()
+    {
+        gameLoop.CardIDs.Add(ID);
+    }
+
+    public void FlipBack()
+    {
+        StartCoroutine(RotateCard());
+    }
+
+    private IEnumerator RotateCard()
+    {
+        float duration = 0.5f;
+        float elapsed = 0;
+        Quaternion start = transform.rotation;
+        Quaternion end = Quaternion.Euler(0, 0, 0); // Ga terug naar plat
+
+        while (elapsed < duration)
+        {
+            transform.rotation = Quaternion.Slerp(start, end, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.rotation = endRot;
-        isAnimating = false;
+        transform.rotation = end;
+    }
+
+    public void MatchFound()
+    {
+        DestroyCard();
+    }
+
+    private void DestroyCard()
+    {
+        Destroy(gameObject);
     }
 }

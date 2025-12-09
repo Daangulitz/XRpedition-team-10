@@ -1,36 +1,52 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MemoryGameLoop : MonoBehaviour
 {
     [Header("Card Prefabs (unique)")]
     [SerializeField] private GameObject[] cardPrefabs;
+    public List<Card> spawnedCards = new List<Card>();
+
 
     [Header("Grid Settings")]
     [SerializeField] private int columns = 4;
     [SerializeField] private int rows = 4;
-    [SerializeField] private float spacing = 2f;
+    [SerializeField] private float spacing = 0.3f;
+
+    [Header("Hierarchy")]
+    [SerializeField] private Transform cardsAnchor;
 
     [Header("UI")]
     [SerializeField] private GameObject UICanvas;
+    
+    private Transform playerHead;
 
-    [Header("VR")]
-    [SerializeField] private Transform playerHead;
-
-    public Card Card1;
-    public Card Card2;
-
+    public float flipRange;
+    
     private int[] gridValues;
-    private bool checkingMatch = false;
+    //private bool checkingMatch = false;
 
+    public List<float> CardIDs = new List<float>();
+    
     void Start()
     {
         GenerateValues();
         Shuffle(gridValues);
         SpawnCards();
 
-        playerHead = GameObject.FindWithTag("MainCamera").transform;
-        Instantiate(UICanvas, playerHead);
+        playerHead = GameObject.FindWithTag("MainCamera")?.transform;
+        Instantiate(UICanvas, playerHead.position, playerHead.rotation, playerHead);
+        
+        CardIDs = new List<float>();
+    }
+
+    void Update()
+    {
+        if (CardIDs.Count >= 2)
+        {
+            CheckMatch();
+        }
     }
 
     private void GenerateValues()
@@ -41,6 +57,11 @@ public class MemoryGameLoop : MonoBehaviour
         int index = 0;
         for (int i = 0; i < cardPrefabs.Length; i++)
         {
+            if (index + 1 >= gridValues.Length)
+            {
+                Debug.LogError("GenerateValues index out of range — check cardPrefabs en grid size.");
+                break;
+            }
             gridValues[index] = i;
             gridValues[index + 1] = i;
             index += 2;
@@ -60,56 +81,105 @@ public class MemoryGameLoop : MonoBehaviour
 
     private void SpawnCards()
     {
+        if (gridValues == null || gridValues.Length == 0)
+        {
+            Debug.LogError("gridValues is leeg. GenerateValues faalde.");
+            return;
+        }
+        
+        float totalWidth = (columns - 1) * spacing;
+        float totalDepth = (rows - 1) * spacing;
+        Vector3 startLocal = new Vector3(-totalWidth / 2f, 0f, -totalDepth / 2f);
+
         for (int i = 0; i < gridValues.Length; i++)
         {
             int id = gridValues[i];
+            if (id < 0 || id >= cardPrefabs.Length)
+            {
+                Debug.LogError($"gridValues bevat ongeldige id ({id}) op index {i}");
+                continue;
+            }
+
             GameObject prefab = cardPrefabs[id];
 
             int row = i / columns;
             int col = i % columns;
 
-            Vector3 position = new Vector3(
-                col * spacing, 2.1f, row * spacing
-            );
+            Vector3 localPos = startLocal + new Vector3(col * spacing, 0f, row * spacing);
+            
+            GameObject cardObj = Instantiate(prefab, cardsAnchor);
+            cardObj.transform.localPosition = localPos;
+            cardObj.transform.localRotation = Quaternion.identity;
+                
+            Card card = cardObj.GetComponent<Card>();
+            if (card == null)
+            {
+                card = cardObj.AddComponent<Card>();
+            }
 
-            GameObject cardObj = Instantiate(prefab, position, Quaternion.identity);
-            cardObj.transform.SetParent(transform, false);
-
-            Card card = cardObj.AddComponent<Card>();
             card.gameLoop = this;
-            card.cardID = id;
+            card.ID = id;
+            
+            spawnedCards.Add(card);
+            
+            if (cardObj.GetComponent<Collider>() == null)
+            {
+                Debug.LogWarning($"Card prefab '{prefab.name}' heeft geen Collider — voeg een collider toe zodat interactie werkt.");
+            }
         }
     }
 
-    public void TryCheckCards()
+    private void CheckMatch()
     {
-        if (Card1 != null && Card2 != null && !checkingMatch)
+        if (CardIDs[0] == CardIDs[1])
         {
-            StartCoroutine(CheckCards());
-        }
-    }
+            float ID = CardIDs[0];
 
-    private IEnumerator CheckCards()
-    {
-        checkingMatch = true;
+            foreach (Card card in spawnedCards)
+            {
+                if (card.ID == ID)
+                {
+                    card.MatchFound();
+                }
+            }
 
-        if (Card1.cardID == Card2.cardID)
-        {
-            // Match gevonden
-            yield return new WaitForSeconds(0.5f); // korte pauze
-            Card1.DestroyCard();
-            Card2.DestroyCard();
+            CardIDs.RemoveAt(0);
+            CardIDs.RemoveAt(0);
+            UpdateUI("right");
         }
         else
         {
-            // Geen match, reset kaarten
-            yield return new WaitForSeconds(1f);
-            Card1.ResetCard();
-            Card2.ResetCard();
-        }
+            foreach (Card card in spawnedCards)
+            {
+                if (card.IsFlippedUp())
+                {
+                    card.FlipBack();
+                }
+            }
 
-        Card1 = null;
-        Card2 = null;
-        checkingMatch = false;
+            CardIDs.RemoveAt(0);
+            CardIDs.RemoveAt(0);
+            UpdateUI("wrong");
+        }
     }
+
+
+
+    private void UpdateUI(string rightOrwrong)
+    {
+        if (rightOrwrong == "right" || rightOrwrong == "Right")
+        {
+            //UI right
+        }
+        else if (rightOrwrong == "wrong" || rightOrwrong == "Wrong")
+        {
+            //UI wrong
+        }
+        else
+        {
+            Debug.LogError($"UpdateUI parameter is spelled wrong: {rightOrwrong}");
+        }
+    }
+
+
 }

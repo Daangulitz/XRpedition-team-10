@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &348601508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1488,7 +1488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1525397318967160320, guid: 0148705b95804ec49a07d7bc105b62f5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3177860567602649533, guid: 0148705b95804ec49a07d7bc105b62f5, type: 3}
       propertyPath: SurfaceClearanceDistance
@@ -1975,7 +1975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2511956216969593397, guid: c17cb4250fb459c46b348a94bf05af93, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3067797349745189319, guid: c17cb4250fb459c46b348a94bf05af93, type: 3}
       propertyPath: m_LocalPosition.x
