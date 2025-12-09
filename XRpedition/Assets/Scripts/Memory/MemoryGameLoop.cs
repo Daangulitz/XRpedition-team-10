@@ -19,6 +19,9 @@ public class MemoryGameLoop : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject UICanvas;
+    [SerializeField] private float TimeActive = 5f;
+    private GameObject WrongUI;
+    private GameObject RightUI;
     
     private Transform playerHead;
 
@@ -35,11 +38,35 @@ public class MemoryGameLoop : MonoBehaviour
         Shuffle(gridValues);
         SpawnCards();
 
-        playerHead = GameObject.FindWithTag("MainCamera")?.transform;
-        Instantiate(UICanvas, playerHead.position, playerHead.rotation, playerHead);
-        
+        playerHead = GameObject.FindWithTag("MainCamera").transform;
+
+        // Instantiate de UI en bewaar de instantie
+        GameObject uiInstance = Instantiate(
+            UICanvas,
+            playerHead.position,
+            playerHead.rotation,
+            playerHead
+        );
+
+        // Zoek de UI-elementen IN de instantie, niet in de prefab
+        Transform uiRoot = uiInstance.transform;
+
+        RightUI = uiRoot.Find("Right")?.gameObject;
+        WrongUI = uiRoot.Find("Wrong")?.gameObject;
+
+        if (RightUI == null)
+            Debug.LogError("UI error: 'Right' kon niet gevonden worden in de UI prefab.");
+        if (WrongUI == null)
+            Debug.LogError("UI error: 'Wrong' kon niet gevonden worden in de UI prefab.");
+
+        // Zorg dat ze uit staan
+        if (RightUI != null) RightUI.SetActive(false);
+        if (WrongUI != null) WrongUI.SetActive(false);
+
+        // Reset card lijst
         CardIDs = new List<float>();
     }
+
 
     void Update()
     {
@@ -167,17 +194,27 @@ public class MemoryGameLoop : MonoBehaviour
 
     private void UpdateUI(string rightOrwrong)
     {
-        if (rightOrwrong == "right" || rightOrwrong == "Right")
+        StartCoroutine(EnableUISequence(rightOrwrong));
+
+    }
+    
+    private IEnumerator EnableUISequence(string type)
+    {
+        if (type == "right" || type == "Right")
         {
-            //UI right
+            RightUI.SetActive(true);
+
+            yield return new WaitForSeconds(TimeActive);
+            RightUI.SetActive(false);
+            yield break;
         }
-        else if (rightOrwrong == "wrong" || rightOrwrong == "Wrong")
+        else if (type == "wrong" || type == "Wrong")
         {
-            //UI wrong
-        }
-        else
-        {
-            Debug.LogError($"UpdateUI parameter is spelled wrong: {rightOrwrong}");
+            WrongUI.SetActive(true);
+
+            yield return new WaitForSeconds(TimeActive);
+            WrongUI.SetActive(false);
+            yield break;
         }
     }
 
