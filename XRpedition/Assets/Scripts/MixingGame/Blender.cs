@@ -10,10 +10,9 @@ public class Blender : MonoBehaviour
     [SerializeField] private FruitOrderManager _Fom;
     [SerializeField] private AudioClip InBlender;
     [SerializeField] private AudioClip Blendering;
-    [SerializeField] private TextMeshProUGUI BlenderText;
+    public TextMeshProUGUI BlenderText;
     [SerializeField] private GameObject KlemBordPrefab;
     [SerializeField] private Transform KlemBordSpawnPoint;
-    
 
     [Header("Liquid Material")]
     [SerializeField] private Renderer LiquidRenderer;   
@@ -30,7 +29,7 @@ public class Blender : MonoBehaviour
     private int ResetGameInt;
 
     public bool IsCorrect;
-    
+
     [SerializeField] private SmoothieGlassShader SmoothieGlassShader;
 
     private void Start()
@@ -41,9 +40,8 @@ public class Blender : MonoBehaviour
         if (_Fom == null)
             _Fom = FindObjectOfType<FruitOrderManager>();
 
-        BlenderText.text = "";
+        BlenderText.text = "Wacht op de klant";
 
-        // Get the actual material instance from the assigned renderer
         if (LiquidRenderer != null)
         {
             LiquetteMaterial = LiquidRenderer.material;
@@ -53,7 +51,7 @@ public class Blender : MonoBehaviour
         {
             Debug.LogWarning("Blender: LiquidRenderer not assigned!");
         }
-        
+
         SmoothieGlassShader = FindObjectOfType<SmoothieGlassShader>();
     }
 
@@ -100,7 +98,7 @@ public class Blender : MonoBehaviour
             if (LiquetteMaterial != null)
                 LiquetteMaterial.SetFloat("_Fill", matfill);
 
-            // Play sound
+            // Sound
             audioSource.clip = InBlender;
             audioSource.Play();
 
@@ -116,7 +114,6 @@ public class Blender : MonoBehaviour
         yield return new WaitForSeconds(triggerDelay);
         processedFruits.Remove(fruit);
 
-        // Blend if all fruits added
         if (_Fom != null && FruitsAdded.Count >= _Fom.CurrentOrder.Count)
             Blend();
     }
@@ -130,11 +127,8 @@ public class Blender : MonoBehaviour
         audioSource.Play();
 
         bool allCorrect = _Fom != null && _Fom.IsCorrectCombination(FruitsAdded);
-        BlenderText.text = allCorrect ? "Goed Gedaan" : "Verkeerde Combinatie";
-        allCorrect = IsCorrect;
-
-        if (_Fom != null)
-            _Fom.NewOrder();
+        IsCorrect = allCorrect;
+        BlenderText.text = "Geef de klant het glas.";
 
         FruitsAdded.Clear();
 
@@ -148,10 +142,15 @@ public class Blender : MonoBehaviour
         StartCoroutine(SmoothDrain(0.1f, 1.2f));
         SmoothieGlassShader.FillGlass();
 
+        // 🔥 RESET GLASS TRIGGER FOR NEXT ROUND
+        SmoothieGlassTrigger trigger = FindFirstObjectByType<SmoothieGlassTrigger>();
+        if (trigger != null)
+            trigger.ResetGlassTrigger();
+
         if (ResetGameInt >= 3)
             ResetGame();
     }
-    
+
     private IEnumerator SmoothDrain(float targetFill, float duration)
     {
         float startFill = matfill;

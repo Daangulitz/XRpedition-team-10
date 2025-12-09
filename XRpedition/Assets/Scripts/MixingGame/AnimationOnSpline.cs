@@ -4,7 +4,8 @@ using UnityEngine.Splines;
 public class AnimationOnSpline : MonoBehaviour
 {
     public SplineAnimate splineAnimate;
-    private static bool pauseTriggered = false;
+    private bool hasPaused = false;
+    private bool hasResumed = false;
     private FruitOrderManager fruitOrderManager;
     private Animator animator;
 
@@ -12,30 +13,33 @@ public class AnimationOnSpline : MonoBehaviour
     {
         fruitOrderManager = FindFirstObjectByType<FruitOrderManager>();
         animator = GetComponent<Animator>();
+        animator.SetBool("IsWalking", true);
     }
-    
+
     private void Update()
     {
-        if (!pauseTriggered && splineAnimate.NormalizedTime >= 0.5f)
+        if (splineAnimate.NormalizedTime <= 0.1f)
+        {
+            hasPaused = false;
+            hasResumed = false;
+        }
+        
+        if (!hasPaused && splineAnimate.NormalizedTime >= 0.5f)
         {
             splineAnimate.Pause();
-            pauseTriggered = true;
+            hasPaused = true;
             fruitOrderManager.NewOrder();
-            animator.SetBool("IsWalking" , false);
-        }
-
-        if (!pauseTriggered)
-        {
-            splineAnimate.Play();
-            animator.SetBool("IsWalking" , true);
+            animator.SetBool("IsWalking", false);
         }
     }
 
-    public static void ResumeAnimation()
+    public void ResumeAnimation()
     {
-        if (pauseTriggered)
+        if (hasPaused && !hasResumed)
         {
-            pauseTriggered = false;
+            splineAnimate.Play();
+            hasResumed = true;
+            animator.SetBool("IsWalking", true);
         }
     }
 }
