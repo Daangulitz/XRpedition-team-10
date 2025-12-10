@@ -4,20 +4,27 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public float ID;
-
     [HideInInspector] public MemoryGameLoop gameLoop;
-    
     [HideInInspector] public bool IsAddedToManager = false;
+    public bool IsFlippedUp;
+    
+    private BoxCollider boxCollider;
 
+    private void Start()
+    {
+        boxCollider = GetComponent<BoxCollider>();
+    }
+    
     private void Update()
     {
-
-        if (!IsAddedToManager && IsFlippedUp())
+        //Adds ID to manager
+        if (!IsAddedToManager && IsFlippedUp)
         {
             AddIDToManager();
-            IsAddedToManager = true;
         }
-        else if (IsAddedToManager && !IsFlippedUp())
+        
+        //Deletes ID from manager
+        if (IsAddedToManager && !IsFlippedUp)
         { 
             if (gameLoop.CardIDs[0] == ID)
             {
@@ -29,42 +36,85 @@ public class Card : MonoBehaviour
             }
             IsAddedToManager = false;
         }
-    }
-
-    public bool IsFlippedUp()
-    {
-        float zDelta = Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.z, 0));
-        float xDelta = Mathf.Abs(Mathf.DeltaAngle(transform.rotation.eulerAngles.x, 0));
         
-        return zDelta > gameLoop.flipRange || xDelta > gameLoop.flipRange;
+        // //als ie wel is omgedraaid, maar niet aan CardIDs [0] of [1] is, draait ie terug
+        // if (gameLoop.CardIDs[0] != ID && gameLoop.CardIDs[0] != null && gameLoop.CardIDs[1] != ID && IsFlippedUp)
+        // {
+        //     FlipBack();
+        // }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "PinchArea") {
+            if (!IsFlippedUp && gameLoop.CanFlip) 
+            {
+                FlipCardAround(); 
+            }
+        }
+    }
+
+    private void FlipCardAround()
+    {
+        if (!IsFlippedUp)
+        {
+            StartCoroutine(RotateCard(1));
+            IsFlippedUp = true;
+        }
+    }
+    
     private void AddIDToManager()
     {
         gameLoop.CardIDs.Add(ID);
+        IsAddedToManager = true;
     }
 
     public void FlipBack()
     {
-        StartCoroutine(RotateCard());
+        if (IsFlippedUp)
+        {
+            StartCoroutine(RotateCard(0));
+        }
     }
-
-    private IEnumerator RotateCard()
+    
+    private IEnumerator RotateCard(int x)
     {
+        boxCollider.enabled = false;
         float duration = 0.5f;
+        
+        if (x == 0)
+        {
+            yield return StartCoroutine(RotateTo(Quaternion.Euler(0, 0, 0), duration));
+            IsFlippedUp = false;
+        } 
+        else if (x == 1)
+        {
+            yield return StartCoroutine(RotateTo(Quaternion.Euler(0, 0, 180), duration));
+            IsFlippedUp = true;
+        }
+        boxCollider.enabled = true;
+        
+        if (gameLoop.CardIDs.Count >= 2)
+        {
+            gameLoop.CheckMatch();
+        }
+    }
+    
+    private IEnumerator RotateTo(Quaternion targetRot, float duration)
+    {
         float elapsed = 0;
-        Quaternion start = transform.rotation;
-        Quaternion end = Quaternion.Euler(0, 0, 0); // Ga terug naar plat
+        Quaternion startRot = transform.rotation;
 
         while (elapsed < duration)
         {
-            transform.rotation = Quaternion.Slerp(start, end, elapsed / duration);
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.rotation = end;
+        transform.rotation = targetRot;
     }
+
 
     public void MatchFound()
     {

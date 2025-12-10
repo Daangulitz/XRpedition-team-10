@@ -13,6 +13,7 @@ public class MemoryGameLoop : MonoBehaviour
     [SerializeField] private int columns = 4;
     [SerializeField] private int rows = 4;
     [SerializeField] private float spacing = 0.3f;
+    private int[] gridValues;
 
     [Header("Hierarchy")]
     [SerializeField] private Transform cardsAnchor;
@@ -24,10 +25,12 @@ public class MemoryGameLoop : MonoBehaviour
     private GameObject RightUI;
     
     private Transform playerHead;
+    
+    public bool CanFlip = true;
+
 
     public float flipRange;
     
-    private int[] gridValues;
     //private bool checkingMatch = false;
 
     public List<float> CardIDs = new List<float>();
@@ -39,16 +42,14 @@ public class MemoryGameLoop : MonoBehaviour
         SpawnCards();
 
         playerHead = GameObject.FindWithTag("MainCamera").transform;
-
-        // Instantiate de UI en bewaar de instantie
+        
         GameObject uiInstance = Instantiate(
             UICanvas,
             playerHead.position,
             playerHead.rotation,
             playerHead
         );
-
-        // Zoek de UI-elementen IN de instantie, niet in de prefab
+        
         Transform uiRoot = uiInstance.transform;
 
         RightUI = uiRoot.Find("Right")?.gameObject;
@@ -64,16 +65,17 @@ public class MemoryGameLoop : MonoBehaviour
         if (WrongUI != null) WrongUI.SetActive(false);
 
         // Reset card lijst
-        CardIDs = new List<float>();
+        CardIDs.Clear();
+
     }
 
 
     void Update()
     {
-        if (CardIDs.Count >= 2)
-        {
-            CheckMatch();
-        }
+        // if (CardIDs.Count >= 2)
+        // {
+        //     CheckMatch();
+        // }
     }
 
     private void GenerateValues()
@@ -156,38 +158,57 @@ public class MemoryGameLoop : MonoBehaviour
         }
     }
 
-    private void CheckMatch()
+    public void CheckMatch()
     {
+        CanFlip = false;   // ❗ NIEMAND mag flippen tijdens check
+
+        StartCoroutine(DoCheck());
+    }
+
+    private IEnumerator DoCheck()
+    {
+        yield return new WaitForSeconds(0.6f); // wacht tot animatie van beide klaar is
+
         if (CardIDs[0] == CardIDs[1])
         {
             float ID = CardIDs[0];
 
             foreach (Card card in spawnedCards)
             {
-                if (card.ID == ID)
+                if (card != null)
                 {
-                    card.MatchFound();
+                    if (card.ID == ID)
+                    {
+                        card.MatchFound();
+                    }
                 }
             }
 
-            CardIDs.RemoveAt(0);
-            CardIDs.RemoveAt(0);
             UpdateUI("right");
         }
         else
         {
             foreach (Card card in spawnedCards)
             {
-                if (card.IsFlippedUp())
+                if (card != null)
                 {
-                    card.FlipBack();
+                    if (card.IsFlippedUp)
+                    {
+                        card.FlipBack();
+                    }
+                    card.IsAddedToManager = false;
                 }
+
             }
 
-            CardIDs.RemoveAt(0);
-            CardIDs.RemoveAt(0);
             UpdateUI("wrong");
         }
+
+        CardIDs.Clear();
+
+        yield return new WaitForSeconds(0.6f); // wacht tot flipback klaar
+
+        CanFlip = true;  //  FLIPPEN MAG WEER
     }
 
 
@@ -217,6 +238,4 @@ public class MemoryGameLoop : MonoBehaviour
             yield break;
         }
     }
-
-
 }
