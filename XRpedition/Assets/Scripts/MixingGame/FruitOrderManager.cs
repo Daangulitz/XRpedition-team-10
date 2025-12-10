@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using Random = UnityEngine.Random;
 
 public class FruitOrderManager : MonoBehaviour
 {
@@ -10,12 +12,14 @@ public class FruitOrderManager : MonoBehaviour
     [SerializeField] private int NumberOfFruits;
     public List<string> CurrentOrder = new List<string>();
     private HashSet<string> validFruitSet;
+    private Blender _blender;
 
     private void Start()
     {
         validFruitSet = new HashSet<string>(fruitNames);
-        NewOrder();
+        _blender = FindFirstObjectByType<Blender>();
     }
+    
 
     private void UpdateGUI()
     {
@@ -34,6 +38,7 @@ public class FruitOrderManager : MonoBehaviour
             CurrentOrder.Add(fruitNames[index]);
         }
         UpdateGUI();
+        _blender.BlenderText.text = "maak de order";
     }
 
     public bool IsValidFruit(string fruitTag)

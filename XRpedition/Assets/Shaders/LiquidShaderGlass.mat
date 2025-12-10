@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_LiquidFlow 1
+  m_Name: LiquidShaderGlass
   m_Shader: {fileID: -6465566751694194690, guid: ab2a78405ea97d046ab4ce7db950f5ca, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,14 +51,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Fill: 0.1
+    - _Fill: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _WobbleX: 0
     - _WobbleZ: 0
     - _XRMotionVectorsPass: 1
     m_Colors:
-    - _SideColour: {r: 0.088579535, g: 0.5396226, b: 0.099054396, a: 1}
+    - _SideColour: {r: 0.088655606, g: 0.5394797, b: 0.09989874, a: 1}
     - _TopColour: {r: 0.1614168, g: 0.86415094, b: 0.1736382, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
