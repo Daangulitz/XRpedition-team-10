@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Card : MonoBehaviour
 {
     public float ID;
@@ -9,9 +10,12 @@ public class Card : MonoBehaviour
     public bool IsFlippedUp;
     
     private BoxCollider boxCollider;
+    private AudioSource audioSource;
+    //[SerializeField] private AudioClip Flip;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         boxCollider = GetComponent<BoxCollider>();
     }
     
@@ -81,6 +85,7 @@ public class Card : MonoBehaviour
     {
         boxCollider.enabled = false;
         float duration = 0.5f;
+        //audioSource.PlayOneShot(Flip);
         
         if (x == 0)
         {
