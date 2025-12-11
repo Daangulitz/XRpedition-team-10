@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class MemoryGameLoop : MonoBehaviour
 {
     [Header("Card Prefabs (unique)")]
@@ -23,6 +24,12 @@ public class MemoryGameLoop : MonoBehaviour
     [SerializeField] private float TimeActive = 5f;
     private GameObject WrongUI;
     private GameObject RightUI;
+    
+    [Header("Sound")]
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip Right;
+    [SerializeField] private AudioClip Wrong;
+    [SerializeField] private AudioClip BGMusic;
     
     private Transform playerHead;
     
@@ -66,16 +73,18 @@ public class MemoryGameLoop : MonoBehaviour
 
         // Reset card lijst
         CardIDs.Clear();
+        
+        audioSource = GetComponent<AudioSource>();
 
     }
 
 
     void Update()
     {
-        // if (CardIDs.Count >= 2)
-        // {
-        //     CheckMatch();
-        // }
+        if (CardIDs.Count >= 2)
+        {
+            CheckMatch();
+        }
     }
 
     private void GenerateValues()
@@ -179,7 +188,9 @@ public class MemoryGameLoop : MonoBehaviour
                 {
                     if (card.ID == ID)
                     {
+                        audioSource.PlayOneShot(Right);
                         card.MatchFound();
+                        
                     }
                 }
             }
@@ -188,6 +199,7 @@ public class MemoryGameLoop : MonoBehaviour
         }
         else
         {
+            audioSource.PlayOneShot(Wrong);
             foreach (Card card in spawnedCards)
             {
                 if (card != null)
