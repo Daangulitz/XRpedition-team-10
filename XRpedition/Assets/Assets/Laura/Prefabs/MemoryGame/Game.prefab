@@ -74,6 +74,7 @@ MonoBehaviour:
   Wrong: {fileID: 8300000, guid: d71c5bc0c30c49e47abe0eb40f37107f, type: 3}
   BGMusic: {fileID: 8300000, guid: c62b6104e3ae60f4382c43ac797b1f5c, type: 3}
   CanFlip: 1
+  cake: {fileID: 5897005974876273732, guid: 87230ddb7ed7c3a4c8df82e530bda258, type: 3}
   flipRange: 170
   CardIDs: []
 --- !u!54 &3896505483760865044

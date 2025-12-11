@@ -35,6 +35,9 @@ public class MemoryGameLoop : MonoBehaviour
     
     public bool CanFlip = true;
 
+    [SerializeField] private GameObject cake;
+    private bool cakeInstatiated = false;
+
 
     public float flipRange;
     
@@ -84,6 +87,13 @@ public class MemoryGameLoop : MonoBehaviour
         if (CardIDs.Count >= 2)
         {
             CheckMatch();
+        }
+
+        GameObject CardsLeft = GameObject.FindWithTag("Card");
+        if (!cakeInstatiated && CardsLeft == null)
+        {
+            Instantiate(cake, cardsAnchor);
+            cakeInstatiated = true;
         }
     }
 
