@@ -8,10 +8,12 @@ public class AnimationOnSpline : MonoBehaviour
     private bool hasResumed = false;
     private FruitOrderManager fruitOrderManager;
     private Animator animator;
+    private Humenextations human;
 
     private void Start()
     {
         fruitOrderManager = FindFirstObjectByType<FruitOrderManager>();
+        human = FindObjectOfType<Humenextations>();
         animator = GetComponent<Animator>();
         animator.SetBool("IsWalking", true);
     }
@@ -22,6 +24,8 @@ public class AnimationOnSpline : MonoBehaviour
         {
             hasPaused = false;
             hasResumed = false;
+            human.SetActiveFalse();
+            human.SetHumanThings();
         }
         
         if (!hasPaused && splineAnimate.NormalizedTime >= 0.5f)

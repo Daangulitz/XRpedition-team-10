@@ -26,7 +26,6 @@ public class SmoothieGlassTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("SmoothieGlas"))
         {
             glassDeliveredThisRound = true;
-            Destroy(other.gameObject);
             StartCoroutine(SmoothieGlassTriggerCoroutine());
         }
     }
@@ -41,7 +40,7 @@ public class SmoothieGlassTrigger : MonoBehaviour
         else
         {
             animator.SetTrigger("Fout");
-            blender.BlenderText.text = "Fout Gedaan";
+            blender.BlenderText.text = "Verkeerde combinatie";
         }
         
         Glass.SetActive(true);
