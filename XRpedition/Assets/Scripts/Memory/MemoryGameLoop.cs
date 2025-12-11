@@ -29,11 +29,15 @@ public class MemoryGameLoop : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip Right;
     [SerializeField] private AudioClip Wrong;
+    [SerializeField] private AudioClip Win;
     [SerializeField] private AudioClip BGMusic;
     
     private Transform playerHead;
     
     public bool CanFlip = true;
+
+    [SerializeField] private GameObject cake;
+    private bool cakeInstatiated = false;
 
 
     public float flipRange;
@@ -75,15 +79,21 @@ public class MemoryGameLoop : MonoBehaviour
         CardIDs.Clear();
         
         audioSource = GetComponent<AudioSource>();
-
     }
-
-
+    
     void Update()
     {
         if (CardIDs.Count >= 2)
         {
             CheckMatch();
+        }
+
+        GameObject CardsLeft = GameObject.FindWithTag("Card");
+        if (!cakeInstatiated && CardsLeft == null)
+        {
+            audioSource.PlayOneShot(Win);
+            Instantiate(cake, cardsAnchor);
+            cakeInstatiated = true;
         }
     }
 
