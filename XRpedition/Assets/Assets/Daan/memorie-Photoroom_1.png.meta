@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db2d25147e4632343831f17ca900f1af
+guid: 7f48553505441b34499e17e7fe14c172
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameLogo_3_0
+      name: memorie-Photoroom_1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3508
-        height: 2480
+        x: 500
+        y: 326
+        width: 286
+        height: 286
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b754a10ffc14254bb065f0e924cca22
-      internalID: 1408421434
+      spriteID: 3aa8b74ce9d3a1f49adb7a7113c57d13
+      internalID: -1358710131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: memorie-Photoroom_1_11
+      rect:
+        serializedVersion: 2
+        x: 836
+        y: 324
+        width: 287
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 194e11aeea95b794faebef13b255c392
+      internalID: -82094925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: memorie-Photoroom_1_12
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 322
+        width: 286
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0b1bba73bd5394eb1802da60c8309a
+      internalID: 1621604306
       vertices: []
       indices: 
       edges: []
@@ -135,7 +179,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0d8924033c4819a488e04918d7a1e6f5
+    spriteID: 09f0bff2d9487044e8730e7769661879
     internalID: 0
     vertices: []
     indices: 
@@ -145,9 +189,29 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":true,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GameLogo_3_0: 1408421434
+      memorie-Photoroom_1_0: -1358710131
+      memorie-Photoroom_1_1: -1098985709
+      memorie-Photoroom_1_10: -1695906429
+      memorie-Photoroom_1_11: -82094925
+      memorie-Photoroom_1_12: 1621604306
+      memorie-Photoroom_1_13: 2016332857
+      memorie-Photoroom_1_14: 1556648572
+      memorie-Photoroom_1_15: -468748090
+      memorie-Photoroom_1_16: -254146060
+      memorie-Photoroom_1_17: 1197503228
+      memorie-Photoroom_1_18: -946662566
+      memorie-Photoroom_1_19: 374473949
+      memorie-Photoroom_1_2: -640729178
+      memorie-Photoroom_1_20: -502933956
+      memorie-Photoroom_1_3: 1226055297
+      memorie-Photoroom_1_4: -1727951276
+      memorie-Photoroom_1_5: 335487320
+      memorie-Photoroom_1_6: 98916510
+      memorie-Photoroom_1_7: 675947278
+      memorie-Photoroom_1_8: 244132410
+      memorie-Photoroom_1_9: 1071149326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

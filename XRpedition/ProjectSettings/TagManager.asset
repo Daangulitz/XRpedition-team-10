@@ -19,7 +19,6 @@ TagManager:
   - FishNet
   - Spawner
   - PPCam
-  - Apple
   - Banana
   - Druif
   - Mandarijn
@@ -32,6 +31,8 @@ TagManager:
   - HumanYellow
   - FishGameCanvas
   - SmoothieGlas
+  - MiniGames
+  - Appel
   layers:
   - Default
   - TransparentFX
@@ -68,6 +69,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Img
+    uniqueID: 4046895129
     locked: 0
   m_RenderingLayers:
   - Default

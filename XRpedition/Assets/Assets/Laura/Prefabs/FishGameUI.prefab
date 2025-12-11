@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8991721359269209685}
   - component: {fileID: 2444492669070643631}
   - component: {fileID: 4101130793562638332}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 8632356987308966802}
   - component: {fileID: 5499755736435365348}
   - component: {fileID: 1741711509450926311}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 8904771769131334231}
   - component: {fileID: 4056933036856521910}
   - component: {fileID: 6988346984724818820}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Purple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 8772628602615096057}
   - component: {fileID: 3940331104881168635}
   - component: {fileID: 6302435831249814978}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Orange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 6915050882855157868}
   - component: {fileID: 2544264415306092816}
   - component: {fileID: 1656430786912757653}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Wrong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 738127990047212471}
   - component: {fileID: 1643208263168213079}
   - component: {fileID: 7691467358138803732}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: FishGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7691467358138803732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 6458461679352294870}
   - component: {fileID: 2481157803174304241}
   - component: {fileID: 5012778482624593}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 5311987681302226690}
   - component: {fileID: 5933977332717960524}
   - component: {fileID: 4277045917789737927}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 3831567009100686061}
   - component: {fileID: 2823819865909215387}
   - component: {fileID: 2873305410482179095}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}

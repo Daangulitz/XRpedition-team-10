@@ -133,12 +133,12 @@ public class FishGameLoop : MonoBehaviour
     {
         switch (color)
         {
-            case "Red":    FishSpawner.SpawnSpecificFish(0); break;
-            case "Orange": FishSpawner.SpawnSpecificFish(1); break;
-            case "Yellow": FishSpawner.SpawnSpecificFish(2); break;
-            case "Green":  FishSpawner.SpawnSpecificFish(3); break;
-            case "Blue":   FishSpawner.SpawnSpecificFish(4); break;
-            case "Purple": FishSpawner.SpawnSpecificFish(5); break;
+            case "Red":    FishSpawner.SpawnSpecificFish(0); FishSpawner.SpawnSpecificFish(0); FishSpawner.SpawnSpecificFish(0); break;
+            case "Orange": FishSpawner.SpawnSpecificFish(1); FishSpawner.SpawnSpecificFish(1); FishSpawner.SpawnSpecificFish(1); break;
+            case "Yellow": FishSpawner.SpawnSpecificFish(2); FishSpawner.SpawnSpecificFish(2); FishSpawner.SpawnSpecificFish(2); break;
+            case "Green":  FishSpawner.SpawnSpecificFish(3); FishSpawner.SpawnSpecificFish(3); FishSpawner.SpawnSpecificFish(3); break;
+            case "Blue":   FishSpawner.SpawnSpecificFish(4); FishSpawner.SpawnSpecificFish(4); FishSpawner.SpawnSpecificFish(4); break;
+            case "Purple": FishSpawner.SpawnSpecificFish(5); FishSpawner.SpawnSpecificFish(5); FishSpawner.SpawnSpecificFish(5); break;
         }
     }
     

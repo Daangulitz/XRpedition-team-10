@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db2d25147e4632343831f17ca900f1af
+guid: 25c0491d105a6ee4c8616d7fd1e567f2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameLogo_3_0
+      name: ui_buttons_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 3508
-        height: 2480
+        x: 475
+        y: 1040
+        width: 1279
+        height: 403
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,8 +125,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b754a10ffc14254bb065f0e924cca22
-      internalID: 1408421434
+      spriteID: 26f6900444fa4924fa149b7b2eb08107
+      internalID: 49578007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_buttons_1
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 1027
+        width: 1310
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f87a5c1987656b4590f7c41db751c7a
+      internalID: -87664491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_buttons_2
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 534
+        width: 1310
+        height: 429
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ca4927a23e92247a4c49b5444674b8
+      internalID: -1023547582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_buttons_3
+      rect:
+        serializedVersion: 2
+        x: 1865
+        y: 534
+        width: 1310
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1df60c4a5ef8c4145bf3d70b631bbf88
+      internalID: -790863361
       vertices: []
       indices: 
       edges: []
@@ -135,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 0d8924033c4819a488e04918d7a1e6f5
+    spriteID: 1dd847f1edce7604e901b80706ecc91d
     internalID: 0
     vertices: []
     indices: 
@@ -145,9 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":3508.0,"y":2480.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":true,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":1754.0,"y":1044.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":391.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":true,"isAlternate":false}'
     nameFileIdTable:
-      GameLogo_3_0: 1408421434
+      ui_buttons_0: 49578007
+      ui_buttons_1: -87664491
+      ui_buttons_2: -1023547582
+      ui_buttons_3: -790863361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
