@@ -87,7 +87,7 @@ SpriteRenderer:
   m_Size: {x: 35.079998, y: 24.802656}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3104175951612646436
@@ -250,9 +250,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 24ba8aa61c9bc1e438e2b71b2668ef95, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: 
+      - m_Target: {fileID: 5552986495755690562}
+        m_TargetAssemblyTypeName: ResetGameButtons, Assembly-CSharp
+        m_MethodName: Resets
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -453,6 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1185333139644521023}
   - component: {fileID: 402709899810295700}
+  - component: {fileID: 5552986495755690562}
   m_Layer: 5
   m_Name: background_ui
   m_TagString: Untagged
@@ -533,6 +534,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5552986495755690562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788407657695643213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad1496753566c42a7402955e7e0877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResetGameButtons
+  ResetGame: {fileID: 3241545420712873846, guid: 3cb2c4678bcfbde44acfc97c7ee0f5c4, type: 3}
 --- !u!1 &5097291631693315493
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,35 +1169,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.267
+      value: -0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.58309454
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.400001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.58309454
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.400001
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.018
+      value: 0.193
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.467
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 68.9
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7812512987485720005, guid: cdc6599770f6c884db65cddf4af8f34b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

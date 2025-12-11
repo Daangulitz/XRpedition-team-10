@@ -268,7 +268,6 @@ Transform:
   - {fileID: 110829102238434495}
   - {fileID: 2450761475583094060}
   - {fileID: 4790119982422650845}
-  - {fileID: 2834115649331472300}
   - {fileID: 4376250338695682558}
   - {fileID: 6988319761000623938}
   - {fileID: 9014341326119997085}
@@ -543,7 +542,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.495, y: -0.152}
+  m_AnchoredPosition: {x: -0.623, y: -0.152}
   m_SizeDelta: {x: 287.124, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5266556851882990625
@@ -828,37 +827,6 @@ MonoBehaviour:
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
   m_Seed: -325240
---- !u!1 &8646789506028188049
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2834115649331472300}
-  m_Layer: 0
-  m_Name: KlemBordSpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2834115649331472300
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8646789506028188049}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.083, y: 0.855, z: 0.995}
-  m_LocalScale: {x: 175, y: 174.99998, z: 174.99998}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 9059350940664733067}
-  m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!1001 &23254085306871290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1191,6 +1159,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6049410961382303102, guid: c2308c5a2bef8a546aeefbce7be6a261, type: 3}
+      propertyPath: 'fruitNames.Array.data[0]'
+      value: Appel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049410961382303102, guid: c2308c5a2bef8a546aeefbce7be6a261, type: 3}
+      propertyPath: 'fruitNames.Array.data[1]'
+      value: Banaan
+      objectReference: {fileID: 0}
     - target: {fileID: 8735557665491811232, guid: c2308c5a2bef8a546aeefbce7be6a261, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -1317,7 +1293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2881566366030848455, guid: e406a5047b3422a4bbf5672e5628f724, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.18753952
+      value: 0.2491
       objectReference: {fileID: 0}
     - target: {fileID: 2881566366030848455, guid: e406a5047b3422a4bbf5672e5628f724, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2124,7 +2100,7 @@ MonoBehaviour:
   Blendering: {fileID: 8300000, guid: fb31d5b860fc10d48b89c101fb684e1b, type: 3}
   BlenderText: {fileID: 7447326634580339110}
   KlemBordPrefab: {fileID: 2652732894936883811, guid: c2308c5a2bef8a546aeefbce7be6a261, type: 3}
-  KlemBordSpawnPoint: {fileID: 2834115649331472300}
+  KlemBordSpawnPoint: {fileID: 0}
   LiquidRenderer: {fileID: 6088926770206347467}
   IsCorrect: 0
   SmoothieGlassShader: {fileID: 0}

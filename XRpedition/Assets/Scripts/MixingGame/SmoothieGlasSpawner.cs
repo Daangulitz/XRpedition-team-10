@@ -10,16 +10,10 @@ public class SmoothieSpawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("SmoothieGlas") && canSpawn)
+        if (other.CompareTag("SmoothieGlas"))
         {
             Instantiate(SmoothieGlasPrefab, TargetPosition.position, TargetPosition.rotation);
-            canSpawn = false;
-            Invoke(nameof(ResetSpawn), spawnCooldown);
-        }
-    }
 
-    private void ResetSpawn()
-    {
-        canSpawn = true;
+        }
     }
 }

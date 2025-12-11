@@ -23,7 +23,7 @@ public class ResetGame : MonoBehaviour
 
         StartCoroutine(Resetgame(4f));
     }
-
+    
     private IEnumerator Resetgame(float time)
     {
         Texture2D activeLUT = (Texture2D)colorLookup.texture.value;

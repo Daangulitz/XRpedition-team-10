@@ -20,7 +20,6 @@ TagManager:
   - Spawner
   - Card
   - PPCam
-  - Banana
   - Druif
   - Mandarijn
   - Pruim
@@ -34,6 +33,7 @@ TagManager:
   - SmoothieGlas
   - MiniGames
   - Appel
+  - Banaan
   layers:
   - Default
   - TransparentFX
