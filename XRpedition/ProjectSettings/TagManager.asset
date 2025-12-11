@@ -19,6 +19,21 @@ TagManager:
   - FishNet
   - Spawner
   - Card
+  - PPCam
+  - Banana
+  - Druif
+  - Mandarijn
+  - Pruim
+  - Blauwe bes
+  - Klembord
+  - HumanBlue
+  - HumanGreen
+  - HumanRed
+  - HumanYellow
+  - FishGameCanvas
+  - SmoothieGlas
+  - MiniGames
+  - Appel
   layers:
   - Default
   - TransparentFX
@@ -55,6 +70,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Img
+    uniqueID: 4046895129
     locked: 0
   m_RenderingLayers:
   - Default

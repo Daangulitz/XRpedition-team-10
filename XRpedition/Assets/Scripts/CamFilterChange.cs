@@ -23,8 +23,14 @@ public class CamFilterChange : MonoBehaviour
 
     [SerializeField] private ColorLookup colorLookup;
 
-    [SerializeField] private GameObject[] MiniGames;
+    [SerializeField] private GameObject MiniGamesCanvas;
     [SerializeField] private GameObject ColorBlindCanvas;
+    [SerializeField] private GameObject CanvasHolder;
+    
+    [Header("MiniGames")]
+    [SerializeField] private GameObject BlenderMiniGame;
+    [SerializeField] private GameObject FishMiniGame;
+    [SerializeField] private GameObject Memorie;
 
     private void Awake()
     {
@@ -40,12 +46,14 @@ public class CamFilterChange : MonoBehaviour
 
         // Get the ColorLookup effect from the Volume profile
         if (volume != null && volume.profile != null)
-        {
             if (!volume.profile.TryGet<ColorLookup>(out colorLookup))
             {
                 Debug.LogWarning("No ColorLookup effect found in the Volume profile!");
             }
+        {
         }
+        
+        MiniGamesCanvas.SetActive(false);
     }
     
     private void Update()
@@ -96,6 +104,24 @@ public class CamFilterChange : MonoBehaviour
         SetLUT(NoColor);
     }
 
+    public void BlenderMinigame()
+    {
+        Instantiate(BlenderMiniGame);
+        Destroy(CanvasHolder);
+    }
+    
+    public void FishMinigame()
+    {
+        Instantiate(FishMiniGame);
+        Destroy(CanvasHolder);
+    }
+
+    public void MemorieMinigame()
+    {
+        Instantiate(Memorie);
+        Destroy(CanvasHolder);
+    }
+
     private void SetLUT(Texture2D lut)
     {
         if (colorLookup == null)
@@ -111,7 +137,7 @@ public class CamFilterChange : MonoBehaviour
     
     private void SetMiniGames()
     {
-        Instantiate(MiniGames[Random.Range(0, MiniGames.Length)]);
+        MiniGamesCanvas.SetActive(true);
         Destroy(ColorBlindCanvas);
     }
 }

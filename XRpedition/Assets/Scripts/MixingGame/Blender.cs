@@ -32,6 +32,8 @@ public class Blender : MonoBehaviour
 
     [SerializeField] private SmoothieGlassShader SmoothieGlassShader;
 
+    [SerializeField] private GameObject Resetgame;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -175,6 +177,12 @@ public class Blender : MonoBehaviour
 
     private void ResetGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(Resetgames());
+    }
+    
+    private IEnumerator Resetgames()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Instantiate(Resetgame);
     }
 }

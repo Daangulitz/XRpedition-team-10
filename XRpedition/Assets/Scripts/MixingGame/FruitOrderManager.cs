@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class FruitOrderManager : MonoBehaviour
 {
     public TextMeshProUGUI orderText;
-    public string[] fruitNames = { "Apple", "Banana", "Blauwe bes", "Druif", "Mandarijn", "Pruim" };
+    public string[] fruitNames = { "Appel", "Banana", "Blauwe bes", "Druif", "Mandarijn", "Pruim" };
     [SerializeField] private int NumberOfFruits;
     public List<string> CurrentOrder = new List<string>();
     private HashSet<string> validFruitSet;
@@ -23,7 +23,7 @@ public class FruitOrderManager : MonoBehaviour
 
     private void UpdateGUI()
     {
-        string text = "Order: \n";
+        string text = "Bestelling: \n";
         foreach (string fruit in CurrentOrder)
             text += fruit + "\n";
         orderText.text = text;
@@ -38,7 +38,7 @@ public class FruitOrderManager : MonoBehaviour
             CurrentOrder.Add(fruitNames[index]);
         }
         UpdateGUI();
-        _blender.BlenderText.text = "maak de order";
+        _blender.BlenderText.text = "maak de Bestelling";
     }
 
     public bool IsValidFruit(string fruitTag)

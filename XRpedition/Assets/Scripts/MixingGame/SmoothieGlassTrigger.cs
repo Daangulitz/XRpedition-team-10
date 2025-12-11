@@ -26,6 +26,7 @@ public class SmoothieGlassTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("SmoothieGlas"))
         {
             glassDeliveredThisRound = true;
+            Destroy(other.gameObject);
             StartCoroutine(SmoothieGlassTriggerCoroutine());
         }
     }

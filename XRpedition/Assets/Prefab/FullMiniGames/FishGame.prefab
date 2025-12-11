@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 8082211446509402990}
   m_Layer: 0
   m_Name: FishGame
-  m_TagString: Untagged
+  m_TagString: MiniGames
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

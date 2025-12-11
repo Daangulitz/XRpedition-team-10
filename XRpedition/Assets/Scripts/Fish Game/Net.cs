@@ -11,6 +11,7 @@ public class Net : MonoBehaviour
 
     [SerializeField] private AudioClip NetSwingSound;
     [SerializeField] private int count;
+    [SerializeField] private GameObject ResetGame;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class Net : MonoBehaviour
     {
         if (count >= 5)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Instantiate(ResetGame);
         }
     }
 
