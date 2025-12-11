@@ -13,7 +13,6 @@ public class SmoothieSpawner : MonoBehaviour
         if (other.CompareTag("SmoothieGlas"))
         {
             Instantiate(SmoothieGlasPrefab, TargetPosition.position, TargetPosition.rotation);
-
         }
     }
 }
